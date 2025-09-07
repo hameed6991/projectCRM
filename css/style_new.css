@@ -1,0 +1,610 @@
+﻿
+.TD {
+    border-style: 1px solid #cfcfcf;
+}
+
+.toplink {
+    font-weight: normal;
+    font-size: 12px;
+    color: #ffffff;
+    font-family: poppins;
+    text-indent: 15px;
+    text-decoration: none;
+}
+
+    .toplink:hover {
+        font-weight: normal;
+        font-size: 12px;
+        color: #BA1E1E;
+        font-family: poppins;
+        text-indent: 15px;
+        text-decoration: underline;
+    }
+
+.GF {
+    font-weight: bold;
+    font-size: 30px;
+    color: #DB2319;
+    font-family: poppins;
+    text-decoration: none;
+}
+
+.sub1 {
+    font-weight: bold;
+    font-size: 11px;
+    color: #002569;
+    font-family: poppins;
+    text-decoration: none;
+}
+
+.sub2 {
+    font-weight: normal;
+    font-size: 11px;
+    color: #000000;
+    font-family: poppins;
+    text-decoration: none;
+}
+
+    .sub2:hover {
+        font-weight: normal;
+        font-size: 11px;
+        color: #000000;
+        font-family: poppins;
+        text-decoration: underline;
+    }
+
+.sub3 {
+    font-weight: bold;
+    font-size: 14px;
+    color: #ffffff;
+    font-family: verdana;
+    text-decoration: none;
+}
+
+.sub4 {
+    font-weight: bold;
+    font-size: 11px;
+    color: #ffffff;
+    font-family: poppins;
+    text-decoration: none;
+}
+
+.sub5 {
+    font-weight: normal;
+    font-size: 12px;
+    color: #002569;
+    font-family: arial;
+    text-decoration: none;
+}
+
+    .sub5:hover {
+        font-weight: normal;
+        font-size: 12px;
+        color: #E84E45;
+        font-family: poppins;
+        text-decoration: none;
+    }
+
+.Man_red {
+    font-weight: normal;
+    font-size: 11px;
+    color: #ff0000;
+    font-family: poppins;
+    text-decoration: none;
+}
+
+.Man_blue {
+    font-weight: normal;
+    font-size: 11px;
+    color: #0000ff;
+    font-family: poppins;
+    text-decoration: none;
+}
+
+.tablink {
+    font-weight: normal;
+    font-size: 12px;
+    color: #002569;
+    font-family: poppins;
+    text-decoration: none;
+    background-image: url(../images/pixel_02.gif);
+    background-attachment: fixed;
+    background-repeat: repeat-x;
+    background-position: center center;
+}
+
+    .tablink:hover {
+        font-weight: normal;
+        font-size: 12px;
+        color: #ffffff;
+        font-family: poppins;
+        text-decoration: none;
+        background-image: url(../images/pixel_02.gif);
+        background-attachment: fixed;
+        background-repeat: repeat-x;
+        background-position: center center;
+    }
+
+.tablink_hi {
+    font-weight: bold;
+    font-size: 11px;
+    color: #ffffff;
+    font-family: poppins;
+    text-decoration: none;
+}
+
+.inputstyle {
+    border: 1px solid #999999;
+    font-size: 11px;
+    width: 105px;
+    color: black;
+    font-family: poppins;
+    background-color: #ffffff;
+}
+
+.decinputstyle {
+    border: 1px solid #999999;
+    font-size: 11px;
+    width: 200px;
+    color: black;
+    font-family: poppins;
+    background-color: #ffffff;
+}
+
+.inputstyle_big {
+    border-right: #999999 1px solid;
+    border-top: #999999 1px solid;
+    font-size: 11px;
+    border-left: #999999 1px solid;
+    width: 150px;
+    color: black;
+    border-bottom: #999999 1px solid;
+    font-family: poppins;
+    height: 20px;
+    background-color: #ffffff;
+}
+
+.inputstyle_big1 {
+    border-right: #999999 1px solid;
+    border-top: #999999 1px solid;
+    font-size: 11px;
+    border-left: #999999 1px solid;
+    width: 250px;
+    color: black;
+    border-bottom: #999999 1px solid;
+    font-family: poppins;
+    height: 15px;
+    background-color: #ffffff;
+}
+
+.inputstyle1 {
+    font-size: 11px;
+    width: 105px;
+    color: black;
+    font-family: poppins;
+    height: 15px;
+    background-color: #ffffff;
+}
+
+.button {
+    background-attachment: fixed;
+    background-image: url(../images/schi_pixel_03.gif);
+    background-repeat: repeat-x;
+    background-position: left center;
+    height: 21px;
+    width: 70px;
+    border: 1px solid #dedede;
+    font-family: poppins;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: normal;
+    color: #000000;
+    text-decoration: none;
+}
+
+.small_button {
+    background-attachment: fixed;
+    background-image: url(../images/schi_pixel_03.gif);
+    background-repeat: repeat-x;
+    background-position: left center;
+    height: 20px;
+    width: 20px;
+    border: 1px solid #cfcfcf;
+    font-family: poppins;
+    font-size: 8pt;
+    font-style: normal;
+    font-weight: bold;
+    color: #E84E45;
+    text-decoration: none;
+}
+
+.loginboxbg {
+    background-image: url(../images/login_box.gif);
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+
+.TD {
+    font-weight: normal;
+    font-size: 11px;
+    color: #00588d;
+    border-top-style: none;
+    border-bottom: #71caff 1px solid;
+    font-family: poppins;
+    border-right-style: none;
+    border-left-style: none;
+}
+
+.toplink {
+    font-weight: normal;
+    font-size: 12px;
+    color: #ffffff;
+    text-indent: 15px;
+    font-family: Arial;
+    text-decoration: none;
+}
+
+    .toplink:hover {
+        font-weight: normal;
+        font-size: 12px;
+        color: aliceblue;
+        text-indent: 15px;
+        font-family: Arial;
+        text-decoration: none;
+    }
+
+.sub1 {
+    font-weight: bold;
+    font-size: 11px;
+    color: #002569;
+    font-family: verdana;
+    text-decoration: none;
+}
+
+.sub2 {
+    font-weight: normal;
+    font-size: 11px;
+    color: #000000;
+    font-family: verdana;
+    text-decoration: none;
+}
+
+    .sub2:hover {
+        font-weight: normal;
+        font-size: 11px;
+        color: #000000;
+        font-family: verdana;
+        text-decoration: underline;
+    }
+
+.sub3 {
+    font-weight: bold;
+    font-size: 14px;
+    color: #ffffff;
+    font-family: verdana;
+    text-decoration: none;
+}
+
+.sub4 {
+    font-weight: bold;
+    font-size: 11px;
+    color: #ffffff;
+    font-family: verdana;
+    text-decoration: none;
+}
+
+.sub5 {
+    font-weight: normal;
+    font-size: 12px;
+    color: midnightblue;
+    font-family: arial;
+    text-decoration: none;
+}
+
+    .sub5:hover {
+        font-weight: normal;
+        font-size: 12px;
+        color: #e84e45;
+        font-family: arial;
+        text-decoration: underline;
+    }
+
+.Link {
+    font-weight: normal;
+    font-size: 12px;
+    color: midnightblue;
+    font-family: arial;
+    text-decoration: underline;
+}
+
+    .Link:hover {
+        font-weight: normal;
+        font-size: 12px;
+        color: #e84e45;
+        font-family: arial;
+        text-decoration: underline;
+    }
+
+.Man_red {
+    font-weight: normal;
+    font-size: 11px;
+    color: #ff0000;
+    font-family: verdana;
+    text-decoration: none;
+}
+
+.Man_blue {
+    font-weight: normal;
+    font-size: 11px;
+    color: #0000ff;
+    font-family: verdana;
+    text-decoration: none;
+}
+
+.tablink {
+    background-position: center center;
+    font-weight: normal;
+    font-size: 12px;
+    background-attachment: fixed;
+    background-image: url(../images/pixel_02.gif);
+    color: #002569;
+    background-repeat: repeat-x;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+}
+
+    .tablink:hover {
+        background-position: center center;
+        font-weight: normal;
+        font-size: 12px;
+        background-attachment: fixed;
+        background-image: url(../images/pixel_02.gif);
+        color: #ffffff;
+        background-repeat: repeat-x;
+        font-family: Arial, Helvetica, sans-serif;
+        text-decoration: none;
+    }
+
+.tablink_hi {
+    font-weight: bold;
+    font-size: 11px;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+}
+
+.inputstyle {
+    border: 1px solid #999999;
+    font-size: 11px;
+    color: black;
+    font-family: Tahoma, Verdana, Arial;
+    background-color: #ffffff;
+    margin-bottom: 0px;
+}
+
+.inputstyle_big {
+    border-right: #999999 1px solid;
+    border-top: #999999 1px solid;
+    font-size: 11px;
+    border-left: #999999 1px solid;
+    width: 150px;
+    color: black;
+    border-bottom: #999999 1px solid;
+    font-family: Tahoma, Verdana, Arial;
+    height: 15px;
+    background-color: #ffffff;
+}
+
+.inputstyle_big1 {
+    border-right: #999999 1px solid;
+    border-top: #999999 1px solid;
+    font-size: 11px;
+    border-left: #999999 1px solid;
+    width: 250px;
+    color: black;
+    border-bottom: #999999 1px solid;
+    font-family: Tahoma, Verdana, Arial;
+    height: 15px;
+    background-color: #ffffff;
+}
+
+.inputstyle1 {
+    font-size: 11px;
+    width: 105px;
+    color: black;
+    font-family: Tahoma, Verdana, Arial;
+    height: 15px;
+    background-color: #ffffff;
+}
+
+.button {
+    border-right: #dedede 1px solid;
+    background-position: left center;
+    border-top: #dedede 1px solid;
+    font-weight: normal;
+    font-size: 8pt;
+    background-attachment: fixed;
+    background-image: url(../images/schi_pixel_03.gif);
+    border-left: #dedede 1px solid;
+    width: 70px;
+    color: #000000;
+    border-bottom: #dedede 1px solid;
+    background-repeat: repeat-x;
+    font-style: normal;
+    font-family: MS sans-serif;
+    height: 21px;
+    text-decoration: none;
+}
+
+.small_button {
+    border-right: #cfcfcf 1px solid;
+    background-position: left center;
+    border-top: #cfcfcf 1px solid;
+    font-weight: bold;
+    font-size: 8pt;
+    background-attachment: fixed;
+    background-image: url(../images/schi_pixel_03.gif);
+    border-left: #cfcfcf 1px solid;
+    width: 16px;
+    color: #e84e45;
+    border-bottom: #cfcfcf 1px solid;
+    background-repeat: repeat-x;
+    font-style: normal;
+    font-family: MS sans-serif;
+    height: 18px;
+    text-decoration: none;
+}
+
+.small_button1 {
+    border-right: #cfcfcf 1px solid;
+    background-position: left center;
+    border-top: #cfcfcf 1px solid;
+    font-weight: bold;
+    font-size: 8pt;
+    background-attachment: fixed;
+    background-image: url(../images/schi_pixel_03.gif);
+    border-left: #cfcfcf 1px solid;
+    width: 20px;
+    color: #e84e45;
+    border-bottom: #cfcfcf 1px solid;
+    background-repeat: repeat-x;
+    font-style: normal;
+    font-family: MS sans-serif;
+    height: 18px;
+    text-decoration: none;
+}
+
+.subN {
+    font-weight: bold;
+    font-size: 11px;
+    color: #002569;
+    font-family: verdana;
+    text-decoration: none;
+}
+
+.sub7 {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: #3B3B3B;
+}
+
+TABLE.tabulardata TD {
+    font-weight: normal;
+    font-size: 12px;
+    color: #002569;
+    font-family: arial;
+    text-decoration: none;
+}
+
+TABLE.tabulardata TH {
+    background-image: url(../images/pixel_004.gif);
+    background-repeat: repeat-x;
+    background-position: top;
+    height: 26px;
+    valign: top;
+}
+
+
+div.calendar {
+    font-size: smaller;
+    color: #000;
+    width: 10px;
+    height: 20px;
+    max-width: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px
+}
+
+    div.calendar table {
+        background-color: #eee;
+        border: 1px solid #aaa;
+        border-collapse: collapse;
+    }
+
+    div.calendar thead {
+        background-color: white;
+    }
+
+    div.calendar td,
+    div.calendar th {
+        padding: 3px;
+        cursor: pointer;
+        text-align: center;
+    }
+
+        div.calendar td.title {
+            font-weight: bold;
+        }
+
+    div.calendar th {
+        background: #ddd;
+        border-bottom: 1px solid #ccc;
+        border-top: 1px solid #ccc;
+        font-weight: bold;
+        color: #555;
+    }
+
+    div.calendar tr.days td {
+        width: 2em;
+        color: #555;
+        text-align: center;
+        cursor: pointer;
+    }
+
+        div.calendar tr.days td:hover,
+        div.calendar td.button:hover {
+            background-color: #34ABFA;
+            cursor: pointer;
+        }
+
+        div.calendar tr.days td:active
+        div.calendar td.button:active {
+            background-color: #cde;
+        }
+
+        div.calendar tr.days td.selected {
+            font-weight: bold;
+            background-color: #fff;
+            color: #000;
+        }
+
+        div.calendar tr.days td.today {
+            font-weight: bold;
+            color: #D50000;
+        }
+
+        div.calendar tr.days td.otherDay {
+            color: #bbb;
+        }
+
+.Link1 {
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 12px;
+    COLOR: midnightblue;
+    FONT-FAMILY: arial;
+    TEXT-DECORATION: underline
+}
+
+    .Link1:hover {
+        FONT-WEIGHT: normal;
+        FONT-SIZE: 12px;
+        COLOR: #FFFFFF;
+        FONT-FAMILY: arial;
+        TEXT-DECORATION: underline
+    }
+
+.add_bt {
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 12px;
+    COLOR: #FFFFFF;
+    width: 50px;
+    height: 20px;
+    FONT-FAMILY: Arial;
+    TEXT-DECORATION: none;
+    border: 2px solid #eb9e24;
+    border-radius: 3px;
+    background-color: #ffb33a;
+}

@@ -1,0 +1,57 @@
+
+CREATE procedure [dbo].[proc_New_ComponentDetails]                         
+
+(                                            
+
+ @InstallCode Varchar(30),
+
+ @compcode Varchar(10),                    
+
+ @Serialno Varchar(20),                                   
+
+ @Qty int,                                                
+
+ @VersionNo varchar(60),         
+
+ @Warstdate datetime,  
+
+ @Warenstdate datetime,      
+
+ @Comments varchar(250),                                  
+
+ @Createdby varchar(50)                                  
+
+                                                         
+
+)                                                                        
+
+as                                     
+
+Begin                
+
+ Declare @Createddate datetime;                
+
+              
+
+ Declare @WarStart datetime;          
+
+ Declare @WarEnd datetime;        
+
+            
+
+ Set @Createddate=dbo.getCountrydate();                
+
+            
+
+ 
+
+  Insert into AddonProducts(Installcode,compcode,SerialNo,Qty,VersionNo,WarrStdate,Warrenddate,Comments,CreatedBy,CreatedDate)                             
+
+  values(@InstallCode,@compcode,@Serialno,@Qty,@VersionNo,@Warstdate,@Warenstdate,@Comments, @Createdby,@Createddate)                   
+
+      
+
+End 
+GO
+
+

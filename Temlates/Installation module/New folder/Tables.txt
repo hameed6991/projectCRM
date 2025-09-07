@@ -1,0 +1,136 @@
+keygeneration
+
+purchase
+
+PSmast
+
+purchaseLookup
+
+Activity
+
+LogMast
+
+userlog
+
+ATM_SLAMAST
+
+
+
+
+
+CREATE procedure [dbo].[proc_Create_WarrantyDetails]                             
+
+(                                                
+
+ @InstallCode Varchar(30),                         
+
+ @WarrantyType Varchar(150),                                       
+
+ @Month int,                                                    
+
+ @NoOfVisit int,             
+
+ @InitWardate datetime,            
+
+ @Module varchar(30),                                      
+
+ @Createdby varchar(50)                                      
+
+ --@Createddate datetime                                                               
+
+)                                                                            
+
+as                                         
+
+Begin                    
+
+ Declare @Createddate datetime;                    
+
+                  
+
+ Declare @WarStart datetime;              
+
+ Declare @WarEnd datetime;            
+
+                
+
+ Set @Createddate=dbo.getCountrydate();                    
+
+                
+
+ if @Module = 'Insert'   or @Module = 'Update'                
+
+ Begin                       
+
+             
+
+  select @InitWardate=isnull(Max(WarEnd),@InitWardate)  from Install_WarrantyDetails where InstallCode=@InstallCode            
+
+  Set @WarStart=cast( DATEADD(day,1,@InitWardate) as DATE)            
+
+               
+
+  Set @WarEnd=cast(convert(char(8), DATEADD(month,@Month,@WarStart), 112) + ' 23:59:59.99' as datetime)            
+
+  Set @WarEnd=DATEADD(day,-1,@WarEnd)           
+
+                   
+
+   --executed in page before starts insert            
+
+  --if exists(select 1 from Install_WarrantyDetails where InstallCode=@InstallCode  and WarrantyType=@WarrantyType)          
+
+  --begin           
+
+ -- Insert into His_Install_WarrantyDetails(InstallCode,WarrantyType,[Month],NoOfVisit,Createdby,Createddate,deletedby,deletddate)                      
+
+ -- select InstallCode,WarrantyType,[Month],NoOfVisit,Createdby,Createddate,@Createdby,@Createddate from Install_WarrantyDetails                    
+
+ -- where InstallCode=@InstallCode and WarrantyType=@WarrantyType              
+
+                    
+
+ -- Delete from Install_WarrantyDetails where InstallCode=@InstallCode  and WarrantyType=@WarrantyType;           
+
+  --end           
+
+            
+
+  Insert into Install_WarrantyDetails(InstallCode,WarrantyType,[Month],NoOfVisit,WarStart,WarEnd,Createdby,Createddate)                                 
+
+  values(@InstallCode,@WarrantyType,@Month,@NoOfVisit,@WarStart,@WarEnd,@Createdby,@Createddate);     
+
+      
+
+  declare @serialno varchar(50)    
+
+  declare @prodcode varchar(30)   
+
+  declare @Status varchar(50)  
+
+     
+
+      
+
+  select @serialno=SerialNo,@prodcode=ProdCode,@Status=Status from purchase  where InstallCode=@InstallCode    
+
+    
+
+  if @Status='Close' or @Status='Open'
+
+  begin  
+
+  exec dbo.Sp_WAR_PM_VisitDate  @WarStart,@WarEnd,@NoOfVisit,@InstallCode,@serialno,@prodcode    
+
+  end  
+
+             
+
+            
+
+ End                
+
+End 
+GO
+
+

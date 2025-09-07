@@ -1,0 +1,210 @@
+﻿body {
+    font-family: poppins;
+    color:red;
+}
+
+
+#head_left_div {
+    height: 65px;
+    background-color: #ffb900;
+    color: white;
+}
+#head_right_div {
+    height: 65px;
+    background-color: #ffb900;
+    color: white;
+}
+#nav_div {
+    height: 64px;
+    background-color: #ffb900;
+    color: white;
+    width: auto;
+}
+
+#nav_ul {
+    height: 64px;
+    width: auto;
+    background-color: #ffb900;
+    color: white;
+    font-size: small;
+    /*padding-right: 0px;*/
+    align-content: center;
+}
+.nav_li {
+    /* border-right: solid 1px white;
+    border-bottom: solid 1px white;*/
+    display: inline-table;
+    padding: 0px 25px;
+     
+}
+ 
+
+    .nav_li a {
+        color: #78350f;
+        text-decoration: none;
+        font-family: Poppins;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        font-size: small;
+
+    }
+.dropdown-menu li a {
+    padding: 5px 5px;
+    align-items: center;
+    font-size: small;
+    border-bottom: 1px solid lavender;
+    /*width:auto;*/
+}
+        .nav_li a:hover {
+            color: #fff;
+             
+        }
+.dropdown-menu li a:hover {
+    padding: 5px 5px;
+    background-color: #fde8a8;
+    color: #78350f;
+    border-radius: 5px;
+    align-items: center;
+    font-size: small;
+}
+
+
+.title {
+    height: 64px;
+    width: 300px;
+    /*background-color:green;*/
+    margin-left: 30px;
+}
+.logout_d {
+    height: 65px;
+    background-color: #ffb900;
+    color: white;
+    align-content: center;
+    text-align: -webkit-right;
+    cursor:pointer;
+}
+.Userinfocontainer {
+    background-color: #FFDB7A;
+    border: 1px solid white;
+    height: 40px;
+    border-radius: 5px;
+    width: 150px;
+    align-content: center;
+    padding: 10px 10px;
+    display: flex;
+    gap: 15px;
+    /* padding: 7px; */
+    align-items: center;
+    color: #78350f;
+    font-size: 14px;
+    font-family: 'Poppins';
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-style: normal;
+    position: relative;
+    left: -20px;
+}
+    .Userinfocontainer:hover {
+        background: lemonchiffon;
+    }
+#but_Logout {
+    background-color: white;
+    color: #ffb900;
+    border: none;
+}
+.title h1 {
+    color: white;
+    /*font-family: poppins;*/
+    text-align: left;
+    position: relative;
+    top: 10px;
+}
+
+#main {
+    height: auto;
+    background-color: white;
+    color: white;
+    border: solid white 0px;
+}
+
+.main-form {
+    height: auto;
+    width: 500px;
+    background-color: white;
+    color: black;
+    position: relative;
+    margin-top: 200px;
+    margin-left: 400px;
+    border-radius: 5px;
+    /*border: solid white 1px;*/
+}
+
+.log-title {
+    text-align: center;
+    position: relative;
+    top: 20px;
+}
+
+.lab-d {
+    color: white;
+    margin-left: 100px;
+    position: relative;
+    top: 30px;
+    font-family: poppins;
+    display: inline-grid;
+}
+
+.txt-d {
+    margin-left: 100px;
+    position: relative;
+    top: 30px;
+    text-decoration:none;
+    border-block:none;
+}
+
+.log-d {
+    margin-top: 50px;
+    text-align: center;
+}
+.addstudent h3 {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 1.75rem;
+    font-family: poppins;
+}
+.addtextfield {
+    background-color: none;
+    text-align: center;
+    text-align: left;
+    margin-left: 300px;
+    height:100px;
+    width:1300px;
+}
+#butadd {
+    background-color: none;
+    height:40px;
+    width:100px;
+    margin-left:70px;
+    margin-top:46px;
+    color:white;
+    position:absolute;
+
+}
+#butsave {
+    background-color: none;
+    height: 40px;
+    width: 100px;
+    margin-left: 70px;
+    margin-top: 46px;
+    color: white;
+    position: absolute;
+}
+#GridView1 {
+}
+
+#food {
+    height: 70px;
+    background-color: #1e2f97;
+    color: white;
+    border: solid white 1px;
+}

@@ -1,0 +1,1555 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B7A308FD-0104-46C8-B8A5-10C3121CF54A}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>apa_pack</RootNamespace>
+    <AssemblyName>apa pack</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44327</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>Dill file\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Account.aspx" />
+    <Content Include="AccountSummary.aspx" />
+    <Content Include="AddAccount.aspx" />
+    <Content Include="AddContack.aspx" />
+    <Content Include="AddInstallation.aspx" />
+    <Content Include="AddServiceRequest.aspx" />
+    <Content Include="apalogin.aspx" />
+    <Content Include="Attach\23620241352101.jpg" />
+    <Content Include="Attach\23620241353657.jpg" />
+    <Content Include="Attach\23620241412263.jpg" />
+    <Content Include="Attach\23620241416491.jpg" />
+    <Content Include="Attach\2362024147471.jpg" />
+    <Content Include="Attach\2362024149754.JPG" />
+    <Content Include="Attach\2362024181347.png" />
+    <Content Include="AutoCompleteTextbox.aspx" />
+    <Content Include="css\Attachment.css" />
+    <Content Include="css\ButtonStyle.css" />
+    <Content Include="css\Calender.css" />
+    <Content Include="css\CommonStyles.css" />
+    <Content Include="css\finance.css" />
+    <Content Include="css\home.css" />
+    <Content Include="css\newforms.css" />
+    <Content Include="css\Styles.css" />
+    <Content Include="css\style_new.css" />
+    <Content Include="css\style_new1.css" />
+    <Content Include="demo.aspx" />
+    <Content Include="EditAccount.aspx" />
+    <Content Include="EditInstallation.aspx" />
+    <Content Include="finance.aspx" />
+    <Content Include="home.aspx" />
+    <Content Include="images\100.jpg" />
+    <Content Include="images\12345.png" />
+    <Content Include="images\123455.png" />
+    <Content Include="images\25.jpg" />
+    <Content Include="images\2yrwarranty.png" />
+    <Content Include="images\3.jpg" />
+    <Content Include="images\41yrs_spinco_logo.jpg" />
+    <Content Include="images\50.jpg" />
+    <Content Include="images\5yrwarranty.png" />
+    <Content Include="images\75.jpg" />
+    <Content Include="images\Accepticon.png" />
+    <Content Include="images\Account.png" />
+    <Content Include="images\Accountsummary.png" />
+    <Content Include="images\accounts_icon.png" />
+    <Content Include="images\account_icon.png" />
+    <Content Include="images\account_info_b.png" />
+    <Content Include="images\acessdenied.gif" />
+    <Content Include="images\actions_icon.png" />
+    <Content Include="images\Add Competitor.png" />
+    <Content Include="images\Add Contact.png" />
+    <Content Include="images\add.gif" />
+    <Content Include="images\Addc.png" />
+    <Content Include="images\Addcash.png" />
+    <Content Include="images\addfollowup.gif" />
+    <Content Include="images\AddFollowUp.png" />
+    <Content Include="images\add_bt.gif" />
+    <Content Include="images\add_bt.png" />
+    <Content Include="images\add_icon.gif" />
+    <Content Include="images\add_icon.png" />
+    <Content Include="images\add_icon1.png" />
+    <Content Include="images\add_icon_blue.png" />
+    <Content Include="images\add_icon_new.png" />
+    <Content Include="images\add_quotation_b.png" />
+    <Content Include="images\admin_icon.png" />
+    <Content Include="images\agreement_icon.png" />
+    <Content Include="images\agreement_management_reports_icon.png" />
+    <Content Include="images\Agricon_01.jpg" />
+    <Content Include="images\Agricon_02.jpg" />
+    <Content Include="images\Agricon_03.jpg" />
+    <Content Include="images\AgrProposal_Footer.jpg" />
+    <Content Include="images\AgrProposal_Header.jpg" />
+    <Content Include="images\AGS.jpg" />
+    <Content Include="images\ajax.jpg" />
+    <Content Include="images\alarm_clock_icon.png" />
+    <Content Include="images\allocated_engineer.png" />
+    <Content Include="images\AllocateToFLM.jpg" />
+    <Content Include="images\AMC_BR.jpg" />
+    <Content Include="images\AMC_CHY-ES.jpg" />
+    <Content Include="images\AMC_CHY-IS.jpg" />
+    <Content Include="images\AMC_CHY-MS.jpg" />
+    <Content Include="images\AMC_PT.jpg" />
+    <Content Include="images\appdownload.png" />
+    <Content Include="images\Archived_Inventory.jpg" />
+    <Content Include="images\arrow-down.png" />
+    <Content Include="images\arrow-right.png" />
+    <Content Include="images\arrow-up.png" />
+    <Content Include="images\arrow.gif" />
+    <Content Include="images\arrowhead.png" />
+    <Content Include="images\arrow_001.gif" />
+    <Content Include="images\arrow_01.gif" />
+    <Content Include="images\arrow_01.png" />
+    <Content Include="images\arrow_02.gif" />
+    <Content Include="images\arrow_02.png" />
+    <Content Include="images\arrow_03.gif" />
+    <Content Include="images\arrow_03.png" />
+    <Content Include="images\arrow_04.gif" />
+    <Content Include="images\arrow_04.png" />
+    <Content Include="images\arrow_05.png" />
+    <Content Include="images\arrow_back.png" />
+    <Content Include="images\arrow_down.gif" />
+    <Content Include="images\Arrow_Icon.png" />
+    <Content Include="images\arrow_icon_b.png" />
+    <Content Include="images\Arrow_Icon_V.png" />
+    <Content Include="images\arrow_max_d.gif" />
+    <Content Include="images\arrow_max_r.gif" />
+    <Content Include="images\arrow_min_l.gif" />
+    <Content Include="images\arrow_min_t.gif" />
+    <Content Include="images\arrow_r.gif" />
+    <Content Include="images\Asset_Category.gif" />
+    <Content Include="images\Asset_SubCategory.gif" />
+    <Content Include="images\asset_tagpattern.gif" />
+    <Content Include="images\Asset_Type.gif" />
+    <Content Include="images\atm.gif" />
+    <Content Include="images\ATM.png" />
+    <Content Include="images\atmCategory.png" />
+    <Content Include="images\ATM_down.png" />
+    <Content Include="images\ATM_down_001.png" />
+    <Content Include="images\ATM_down_icon.png" />
+    <Content Include="images\ATM_Live.png" />
+    <Content Include="images\ATM_Live_001.png" />
+    <Content Include="images\ATM_Live_icon.png" />
+    <Content Include="images\ATM_nondown.png" />
+    <Content Include="images\ATM_nondown_001.png" />
+    <Content Include="images\ATM_nondown_icon.png" />
+    <Content Include="images\Attachicon.png" />
+    <Content Include="images\Attachimagcarousel.png" />
+    <Content Include="images\attachment_icon.png" />
+    <Content Include="images\attachment_icon_New.png" />
+    <Content Include="images\Attach_download.png" />
+    <Content Include="images\attach_files.gif" />
+    <Content Include="images\attach_icon.gif" />
+    <Content Include="images\attention.png" />
+    <Content Include="images\avtaar_box_pixel_m.png" />
+    <Content Include="images\avtaar_box_top.png" />
+    <Content Include="images\avtaar_default_img.gif" />
+    <Content Include="images\Axis.png" />
+    <Content Include="images\back.gif" />
+    <Content Include="images\backgrnd.jpg" />
+    <Content Include="images\back_Black_Arrow.png" />
+    <Content Include="images\back_bt.gif" />
+    <Content Include="images\back_icon_b.png" />
+    <Content Include="images\bank-project-icon.png" />
+    <Content Include="images\Bank.png" />
+    <Content Include="images\bankmapping.png" />
+    <Content Include="images\bankprojectmapping.png" />
+    <Content Include="images\barcode_icon.png" />
+    <Content Include="images\bar_blk.gif" />
+    <Content Include="images\bar_wht.gif" />
+    <Content Include="images\batchrunconfigmaster.png" />
+    <Content Include="images\BD_Wishes_bg.png" />
+    <Content Include="images\bg1.gif" />
+    <Content Include="images\bg2.gif" />
+    <Content Include="images\bg2.jpg" />
+    <Content Include="images\bg_pixel_001.jpg" />
+    <Content Include="images\bill_icon.png" />
+    <Content Include="images\black_arrow.gif" />
+    <Content Include="images\bluespacer.gif" />
+    <Content Include="images\blue_icon.png" />
+    <Content Include="images\body_bg.png" />
+    <Content Include="images\Bookmark-add.png" />
+    <Content Include="images\Bookmark.png" />
+    <Content Include="images\book_icon.png" />
+    <Content Include="images\bottom_ conner.gif" />
+    <Content Include="images\bottom_R.gif" />
+    <Content Include="images\bottom__conner.gif" />
+    <Content Include="images\box_bottom_l.gif" />
+    <Content Include="images\box_bottom_m.gif" />
+    <Content Include="images\box_bottom_r.gif" />
+    <Content Include="images\box_l_bottom.gif" />
+    <Content Include="images\box_pixel_01.gif" />
+    <Content Include="images\box_r_bottom.gif" />
+    <Content Include="images\box_r_top.gif" />
+    <Content Include="images\box_tab_l.gif" />
+    <Content Include="images\box_tab_m.gif" />
+    <Content Include="images\box_tab_r.gif" />
+    <Content Include="images\box_top_l.gif" />
+    <Content Include="images\box_top_m.gif" />
+    <Content Include="images\box_top_r.gif" />
+    <Content Include="images\branchapproval.png" />
+    <Content Include="images\branchmanagerapproval.png" />
+    <Content Include="images\Building.gif" />
+    <Content Include="images\bulet_01.gif" />
+    <Content Include="images\busy.jpg" />
+    <Content Include="images\button_l.gif" />
+    <Content Include="images\button_m.gif" />
+    <Content Include="images\button_pixel.gif" />
+    <Content Include="images\button_pixel_001.png" />
+    <Content Include="images\button_pixel_01.jpg" />
+    <Content Include="images\button_r.gif" />
+    <Content Include="images\b_w_pacer.gif" />
+    <Content Include="images\b_w_pacer_v.gif" />
+    <Content Include="images\c002.gif" />
+    <Content Include="images\c005.gif" />
+    <Content Include="images\C3R.png" />
+    <Content Include="images\c3rn.png" />
+    <Content Include="images\c3rs.png" />
+    <Content Include="images\calendar.png" />
+    <Content Include="images\calendarnnew.png" />
+    <Content Include="images\calendar_icon.gif" />
+    <Content Include="images\calender_icon.png" />
+    <Content Include="images\callclose.gif" />
+    <Content Include="images\call_closed_icon.png" />
+    <Content Include="images\call_icon.png" />
+    <Content Include="images\cancel.png" />
+    <Content Include="images\cancel_btn.png" />
+    <Content Include="images\cancel_icon.gif" />
+    <Content Include="images\Caoufred_leftarrow.png" />
+    <Content Include="images\Caoufred_rightarrow.png" />
+    <Content Include="images\cbractivityotherupload.png" />
+    <Content Include="images\cbractivitysbi.png" />
+    <Content Include="images\cbractivityupload.PNG" />
+    <Content Include="images\cbrreportdesigner.png" />
+    <Content Include="images\Certificate.png" />
+    <Content Include="images\certificatefinal.png" />
+    <Content Include="images\certificatenew1.png" />
+    <Content Include="images\certificatenew2.png" />
+    <Content Include="images\certificatenew3.png" />
+    <Content Include="images\certificatenew4.png" />
+    <Content Include="images\certificatenew5.png" />
+    <Content Include="images\certificate_02.png" />
+    <Content Include="images\Certifiedlist.png" />
+    <Content Include="images\Certifiedlist1.png" />
+    <Content Include="images\ChannelManager.png" />
+    <Content Include="images\check-mark.png" />
+    <Content Include="images\check-mark_Idle.png" />
+    <Content Include="images\check-mark_Leave.png" />
+    <Content Include="images\check-mark_Travel.png" />
+    <Content Include="images\check-mark_WIP.png" />
+    <Content Include="images\CHYLogo.gif" />
+    <Content Include="images\clock_icon.gif" />
+    <Content Include="images\close.gif" />
+    <Content Include="images\Close.png" />
+    <Content Include="images\close_bt.gif" />
+    <Content Include="images\close_call_icon.gif" />
+    <Content Include="images\close_icon.png" />
+    <Content Include="images\closure_icon.png" />
+    <Content Include="images\closure_icon_01.png" />
+    <Content Include="images\closure_icon~old.png" />
+    <Content Include="images\closure_w_icon.png" />
+    <Content Include="images\CMC_CHY-ES.jpg" />
+    <Content Include="images\CMC_CHY-MS-Excl.jpg" />
+    <Content Include="images\CMC_CHY-MS-Lite.jpg" />
+    <Content Include="images\CMS_logo.png" />
+    <Content Include="images\cogent_logo.png" />
+    <Content Include="images\cogent_logo1.png" />
+    <Content Include="images\common.gif" />
+    <Content Include="images\configuration-1.png" />
+    <Content Include="images\Contact.gif" />
+    <Content Include="images\Contractor.gif" />
+    <Content Include="images\contractor_pass_issue_icon.gif" />
+    <Content Include="images\Copy of bg2.gif" />
+    <Content Include="images\Copy of Download-Detail.png" />
+    <Content Include="images\Copy of Download-Master.png" />
+    <Content Include="images\Copy of header_pixel_003.gif" />
+    <Content Include="images\Copy of message_box_Greetings.gif" />
+    <Content Include="images\Cost_Center.gif" />
+    <Content Include="images\create_request.gif" />
+    <Content Include="images\creat_bank.gif" />
+    <Content Include="images\credit_btn.png" />
+    <Content Include="images\CSPL-logo.jpg" />
+    <Content Include="images\cspl_logo.gif" />
+    <Content Include="images\cspl_logo_s.jpg" />
+    <Content Include="images\CustBranch.png" />
+    <Content Include="images\Customer.png" />
+    <Content Include="images\Customer1.png" />
+    <Content Include="images\Customerinpage_logo.png" />
+    <Content Include="images\customerlogin.PNG" />
+    <Content Include="images\Customer_logo.gif" />
+    <Content Include="images\Customer_logo.png" />
+    <Content Include="images\customer_logo1.png" />
+    <Content Include="images\Customer_Logoo.png" />
+    <Content Include="images\customer_logooo.png" />
+    <Content Include="images\Cytiva.jpg" />
+    <Content Include="images\dashboard_button.png" />
+    <Content Include="images\dashboard_chart_001.gif" />
+    <Content Include="images\dashboard_icon.png" />
+    <Content Include="images\dashboard_icon_0.png" />
+    <Content Include="images\dashboard_icon_10.png" />
+    <Content Include="images\dashboard_icon_100.png" />
+    <Content Include="images\dashboard_icon_20.png" />
+    <Content Include="images\dashboard_icon_25.png" />
+    <Content Include="images\dashboard_icon_30.png" />
+    <Content Include="images\dashboard_icon_40.png" />
+    <Content Include="images\dashboard_icon_50.png" />
+    <Content Include="images\dashboard_icon_60.png" />
+    <Content Include="images\dashboard_icon_70.png" />
+    <Content Include="images\dashboard_icon_75.png" />
+    <Content Include="images\dashboard_icon_80.png" />
+    <Content Include="images\dashboard_icon_90.png" />
+    <Content Include="images\data_audit_icon.gif" />
+    <Content Include="images\data_import_icon.gif" />
+    <Content Include="images\dba.gif" />
+    <Content Include="images\deadline %281%29.png" />
+    <Content Include="images\deadline.png" />
+    <Content Include="images\default-user.png" />
+    <Content Include="images\Del.gif" />
+    <Content Include="images\delete-but.png" />
+    <Content Include="images\delete_icon.png" />
+    <Content Include="images\demo.gif" />
+    <Content Include="images\demo1.gif" />
+    <Content Include="images\Department.gif" />
+    <Content Include="images\details_reports_icon.png" />
+    <Content Include="images\detract.jpg" />
+    <Content Include="images\detractor.png" />
+    <Content Include="images\Dispatch_icon.gif" />
+    <Content Include="images\Dispatch_icon.png" />
+    <Content Include="images\dispatch_icon_green.png" />
+    <Content Include="images\Dispatch_icon_green~old.png" />
+    <Content Include="images\Dispatch_icon_orange.png" />
+    <Content Include="images\Dispatch_icon_red.png" />
+    <Content Include="images\Dispatch_icon_red~old.png" />
+    <Content Include="images\Dispatch_icon~old.png" />
+    <Content Include="images\document.png" />
+    <Content Include="images\dontlike.png" />
+    <Content Include="images\dontlike1.png" />
+    <Content Include="images\dontlike2.png" />
+    <Content Include="images\dot_line.gif" />
+    <Content Include="images\double_arrow_right.png" />
+    <Content Include="images\down.png" />
+    <Content Include="images\Download-Detail.png" />
+    <Content Include="images\Download-Master.png" />
+    <Content Include="images\DownloadCentre.png" />
+    <Content Include="images\Downloads-icon.png" />
+    <Content Include="images\download_icon.gif" />
+    <Content Include="images\download_icon.png" />
+    <Content Include="images\down_arrow.png" />
+    <Content Include="images\down_arrow_g.png" />
+    <Content Include="images\down_arrow_red.png" />
+    <Content Include="images\drag_icon.png" />
+    <Content Include="images\duplicate_icon.png" />
+    <Content Include="images\DynamicPage.gif" />
+    <Content Include="images\Edit Product.png" />
+    <Content Include="images\edit-info.png" />
+    <Content Include="images\edit.png" />
+    <Content Include="images\edit2_icon.gif" />
+    <Content Include="images\editicon.png" />
+    <Content Include="images\Edit_btn.png" />
+    <Content Include="images\edit_icon.gif" />
+    <Content Include="images\EILNewlnstallation.jpg" />
+    <Content Include="images\email_delete.gif" />
+    <Content Include="images\email_followup_icon.gif" />
+    <Content Include="images\email_followup_small.gif" />
+    <Content Include="images\email_icon.jpg" />
+    <Content Include="images\Employee.gif" />
+    <Content Include="images\employee_pass_issue_icon.gif" />
+    <Content Include="images\empty.gif" />
+    <Content Include="images\end.gif" />
+    <Content Include="images\End_Icon.jpg" />
+    <Content Include="images\eng.png" />
+    <Content Include="images\engineer %282%29.png" />
+    <Content Include="images\Engineer.png" />
+    <Content Include="images\Engineer1.png" />
+    <Content Include="images\EngineerEnd.png" />
+    <Content Include="images\EngineerMaster.png" />
+    <Content Include="images\EngineerStart.png" />
+    <Content Include="images\engineer_b.png" />
+    <Content Include="images\engineer_g.png" />
+    <Content Include="images\engineer_icon.png" />
+    <Content Include="images\Engineer_Icon_new.png" />
+    <Content Include="images\engineer_r.png" />
+    <Content Include="images\Eng_icon.png" />
+    <Content Include="images\eppendorf_logo.jpg" />
+    <Content Include="images\equipments_icon.png" />
+    <Content Include="images\equipment_master_icon.gif" />
+    <Content Include="images\error.gif" />
+    <Content Include="images\Euronet.png" />
+    <Content Include="images\events_bg.png" />
+    <Content Include="images\Events_Mobile.jpg" />
+    <Content Include="images\event_icon.png" />
+    <Content Include="images\excel_icon.png" />
+    <Content Include="images\exclamation.png" />
+    <Content Include="images\expand_all.gif" />
+    <Content Include="images\expand_all.png" />
+    <Content Include="images\Export.gif" />
+    <Content Include="images\export_to_excel_bt.gif" />
+    <Content Include="images\fdot_line.gif" />
+    <Content Include="images\field_force_system_reports_icon.png" />
+    <Content Include="images\filter_icon.png" />
+    <Content Include="images\filter_records_bt.gif" />
+    <Content Include="images\Final1_01.gif" />
+    <Content Include="images\Final1_02.gif" />
+    <Content Include="images\Final1_03.gif" />
+    <Content Include="images\Final1_04.gif" />
+    <Content Include="images\Final1_05.gif" />
+    <Content Include="images\Final1_06.gif" />
+    <Content Include="images\Final2_01.gif" />
+    <Content Include="images\Final2_01Orig.gif" />
+    <Content Include="images\Final2_02.gif" />
+    <Content Include="images\Final2_03.gif" />
+    <Content Include="images\Final2_04.gif" />
+    <Content Include="images\Final2_04backup.gif" />
+    <Content Include="images\Final2_05.gif" />
+    <Content Include="images\Final2_06.gif" />
+    <Content Include="images\first_bt.gif" />
+    <Content Include="images\first_bt.png" />
+    <Content Include="images\first_bt_gr.png" />
+    <Content Include="images\first_bt_gray.gif" />
+    <Content Include="images\flag_blue.png" />
+    <Content Include="images\flag_icon.gif" />
+    <Content Include="images\flag_icon.png" />
+    <Content Include="images\flag_orange.gif" />
+    <Content Include="images\Flag_RightBlue.png" />
+    <Content Include="images\flashnews.jpg" />
+    <Content Include="images\FlashNews.png" />
+    <Content Include="images\flash_news_img.png" />
+    <Content Include="images\Floor.gif" />
+    <Content Include="images\followup_icon.png" />
+    <Content Include="images\followup_icon_blue.png" />
+    <Content Include="images\followup_icon~old.png" />
+    <Content Include="images\Follow_up.png" />
+    <Content Include="images\follow_up_icon.png" />
+    <Content Include="images\footer.jpg" />
+    <Content Include="images\footer1.jpg" />
+    <Content Include="images\footer_pixel.gif" />
+    <Content Include="images\FSLSfooter.jpg" />
+    <Content Include="images\FSLSheader.jpg" />
+    <Content Include="images\FSLSleftside.jpg" />
+    <Content Include="images\fssnet.png" />
+    <Content Include="images\gadget_bg_pixel.gif" />
+    <Content Include="images\gadget_icon_separator.png" />
+    <Content Include="images\gate_pass_designer_icon.gif" />
+    <Content Include="images\generated_reports_icon.png" />
+    <Content Include="images\google-play.png" />
+    <Content Include="images\go_bt.gif" />
+    <Content Include="images\graph.jpg" />
+    <Content Include="images\graph_001.gif" />
+    <Content Include="images\graph_001.jpg" />
+    <Content Include="images\graph_002.gif" />
+    <Content Include="images\graph_002.jpg" />
+    <Content Include="images\graph_003.jpg" />
+    <Content Include="images\gray_box_l.gif" />
+    <Content Include="images\gray_box_m.gif" />
+    <Content Include="images\gray_box_r.gif" />
+    <Content Include="images\gray_rbox_b_l.gif" />
+    <Content Include="images\gray_rbox_b_r.gif" />
+    <Content Include="images\gray_rbox_l.gif" />
+    <Content Include="images\gray_rbox_t_l.gif" />
+    <Content Include="images\gray_rbox_t_r.gif" />
+    <Content Include="images\greendummy.png" />
+    <Content Include="images\green_icon.png" />
+    <Content Include="images\grey_arrow.gif" />
+    <Content Include="images\grid_heading_pixel.gif" />
+    <Content Include="images\Groupnewtask1.png" />
+    <Content Include="images\hardware.png" />
+    <Content Include="images\hardwareRequest.gif" />
+    <Content Include="images\hardware_request_icon.png" />
+    <Content Include="images\header.jpg" />
+    <Content Include="images\header_pixel_001.gif" />
+    <Content Include="images\header_pixel_002.gif" />
+    <Content Include="images\header_pixel_003.gif" />
+    <Content Include="images\header_pixel_003_sr.gif" />
+    <Content Include="images\heading_bg.gif" />
+    <Content Include="images\heading_bg_001.gif" />
+    <Content Include="images\heading_pixel_001.png" />
+    <Content Include="images\help.gif" />
+    <Content Include="images\high_arrow.png" />
+    <Content Include="images\HolidayInfo.png" />
+    <Content Include="images\holiday_manager_icon.gif" />
+    <Content Include="images\home_icon.png" />
+    <Content Include="images\Home_Logo.PNG" />
+    <Content Include="images\hubLocation.png" />
+    <Content Include="images\Icon feather-upload-cloud.png" />
+    <Content Include="images\icon_01.gif" />
+    <Content Include="images\icon_02.gif" />
+    <Content Include="images\icon_02.jpg" />
+    <Content Include="images\icon_03.jpg" />
+    <Content Include="images\icon_04.jpg" />
+    <Content Include="images\icon_05.jpg" />
+    <Content Include="images\icon_06.jpg" />
+    <Content Include="images\icon_07.jpg" />
+    <Content Include="images\icon_heading_bg.gif" />
+    <Content Include="images\icon_heading_r.gif" />
+    <Content Include="images\icon_pie_chart.gif" />
+    <Content Include="images\icon_separator.gif" />
+    <Content Include="images\icon_separator_002.gif" />
+    <Content Include="images\inbox_icon.png" />
+    <Content Include="images\IndentUpload.png" />
+    <Content Include="images\info.gif" />
+    <Content Include="images\inkarplogo.gif" />
+    <Content Include="images\inkarplogo.png" />
+    <Content Include="images\inputstyle_bg.png" />
+    <Content Include="images\inputstyle_bg_M.png" />
+    <Content Include="images\inputstyle_bg_R.png" />
+    <Content Include="images\inside_gray_tab_l.gif" />
+    <Content Include="images\inside_gray_tab_m.gif" />
+    <Content Include="images\inside_gray_tab_r.gif" />
+    <Content Include="images\inside_tab_l.gif" />
+    <Content Include="images\inside_tab_m.gif" />
+    <Content Include="images\inside_tab_r.gif" />
+    <Content Include="images\instagram_icon.jpg" />
+    <Content Include="images\installation_icon.png" />
+    <Content Include="images\Inventory.jpg" />
+    <Content Include="images\Issue_Category.gif" />
+    <Content Include="images\Issue_SubCategory.gif" />
+    <Content Include="images\JobSheet.gif" />
+    <Content Include="images\key-activity.png" />
+    <Content Include="images\kiosk_setting_icon.gif" />
+    <Content Include="images\lab-footer.gif" />
+    <Content Include="images\lab-footer.png" />
+    <Content Include="images\Lab-head.gif" />
+    <Content Include="images\LabRequest.gif" />
+    <Content Include="images\last_bt.gif" />
+    <Content Include="images\last_bt.png" />
+    <Content Include="images\last_bt_gr.png" />
+    <Content Include="images\last_bt_gray.gif" />
+    <Content Include="images\latlonupload.png" />
+    <Content Include="images\leaf_link_icon.gif" />
+    <Content Include="images\left_arrow.png" />
+    <Content Include="images\left_arrow1.png" />
+    <Content Include="images\left_arrow1_hi.png" />
+    <Content Include="images\left_arrow_gr.png" />
+    <Content Include="images\letter.png" />
+    <Content Include="images\License.gif" />
+    <Content Include="images\lightblueband.jpg" />
+    <Content Include="images\like1.png" />
+    <Content Include="images\like2.png" />
+    <Content Include="images\linkedin_icon.jpg" />
+    <Content Include="images\lipi_logo.png" />
+    <Content Include="images\List_Editor.gif" />
+    <Content Include="images\loading chart-07.png" />
+    <Content Include="images\loading chart-08.png" />
+    <Content Include="images\loading without number-01.png" />
+    <Content Include="images\loading without number-02.png" />
+    <Content Include="images\loading without number-03.png" />
+    <Content Include="images\loading without number-04.png" />
+    <Content Include="images\loading without number-05.png" />
+    <Content Include="images\loading without number-06.png" />
+    <Content Include="images\loading.gif" />
+    <Content Include="images\loadingGif.gif" />
+    <Content Include="images\Loading_Bar.gif" />
+    <Content Include="images\locate_cus_bt.png" />
+    <Content Include="images\locate_cus_bt_hi.png" />
+    <Content Include="images\locate_eng_bt.png" />
+    <Content Include="images\locate_eng_bt_hi.png" />
+    <Content Include="images\location-engineer.png" />
+    <Content Include="images\Location.png" />
+    <Content Include="images\LocationMaster.png" />
+    <Content Include="images\location_icon.png" />
+    <Content Include="images\lock_icon.png" />
+    <Content Include="images\login.gif" />
+    <Content Include="images\login.png" />
+    <Content Include="images\loginbackground.jpg" />
+    <Content Include="images\LoginS.gif" />
+    <Content Include="images\login_bg.jpg" />
+    <Content Include="images\login_bg3.jpg" />
+    <Content Include="images\login_bgimg.jpg" />
+    <Content Include="images\login_bg_Billing.jpg" />
+    <Content Include="images\login_bg_Conveyance.jpg" />
+    <Content Include="images\login_bg_Customer.jpg" />
+    <Content Include="images\login_bg_pixel.jpg" />
+    <Content Include="images\login_box.gif" />
+    <Content Include="images\login_box_bg.png" />
+    <Content Include="images\login_cms_logo.gif" />
+    <Content Include="images\login_cogent_logo.gif" />
+    <Content Include="images\login_cspl_logo.gif" />
+    <Content Include="images\login_lipi_logo.gif" />
+    <Content Include="images\login_vortex_logo.gif" />
+    <Content Include="images\login_vortex_logo1.gif" />
+    <Content Include="images\Logo.gif" />
+    <Content Include="images\logout.gif" />
+    <Content Include="images\logout.png" />
+    <Content Include="images\logout_icon.gif" />
+    <Content Include="images\logout_icon.png" />
+    <Content Include="images\logout_icon1.png" />
+    <Content Include="images\Logo_bioscreen.png" />
+    <Content Include="images\Logo_bioscreen_01.png" />
+    <Content Include="images\logo_site.png" />
+    <Content Include="images\log_settings.gif" />
+    <Content Include="images\low_arrow.png" />
+    <Content Include="images\mail-caution.png" />
+    <Content Include="images\mail.png" />
+    <Content Include="images\mailsettings.gif" />
+    <Content Include="images\main_bar_pixel_01.jpg" />
+    <Content Include="images\main_td_pixel.gif" />
+    <Content Include="images\management_reports_icon.png" />
+    <Content Include="images\manage_account_icon.png" />
+    <Content Include="images\mandatory_img.png" />
+    <Content Include="images\MasterHead.bmp" />
+    <Content Include="images\material.gif" />
+    <Content Include="images\material_workflow_icon.gif" />
+    <Content Include="images\maximise.gif" />
+    <Content Include="images\maximize.gif" />
+    <Content Include="images\max_arrow.png" />
+    <Content Include="images\mdml.gif" />
+    <Content Include="images\MDMLlogo.gif" />
+    <Content Include="images\menu_bg_img.png" />
+    <Content Include="images\menu_bg_r.png" />
+    <Content Include="images\menu_sep_img.gif" />
+    <Content Include="images\message_box.gif" />
+    <Content Include="images\message_box_01.png" />
+    <Content Include="images\message_box_02.png" />
+    <Content Include="images\message_box_Greetings.gif" />
+    <Content Include="images\message_sent.gif" />
+    <Content Include="images\message_tab_l.gif" />
+    <Content Include="images\message_tab_m.gif" />
+    <Content Include="images\message_tab_r.gif" />
+    <Content Include="images\messaging.gif" />
+    <Content Include="images\messaging_icon.png" />
+    <Content Include="images\Metrohm_logo.png" />
+    <Content Include="images\MILChennaifooter.jpg" />
+    <Content Include="images\MILChennaiheader.jpg" />
+    <Content Include="images\minimise_icon.gif" />
+    <Content Include="images\minimize.gif" />
+    <Content Include="images\minus_icon.png" />
+    <Content Include="images\minus_img.png" />
+    <Content Include="images\min_arrow.png" />
+    <Content Include="images\MIPL_Logo_NEW.jpg" />
+    <Content Include="images\Mobile-Sms.png" />
+    <Content Include="images\mobile_login.png" />
+    <Content Include="images\more_icon.png" />
+    <Content Include="images\more_icon_gr.png" />
+    <Content Include="images\more_menu_bt.png" />
+    <Content Include="images\more_menu_bt1.png" />
+    <Content Include="images\msxl_icon_16x16.gif" />
+    <Content Include="images\myactivities_icon.gif" />
+    <Content Include="images\my_favorites_icon.png" />
+    <Content Include="images\NCR.png" />
+    <Content Include="images\NCSB.png" />
+    <Content Include="images\nearest_cus_bt.png" />
+    <Content Include="images\nearest_cus_bt_hi.png" />
+    <Content Include="images\nearest_eng_bt.png" />
+    <Content Include="images\nearest_eng_bt_hi.png" />
+    <Content Include="images\new.png" />
+    <Content Include="images\News.jpg" />
+    <Content Include="images\newspaper.png" />
+    <Content Include="images\news_bg.png" />
+    <Content Include="images\news_icon.png" />
+    <Content Include="images\News_Mobile.png" />
+    <Content Include="images\new_bt.gif" />
+    <Content Include="images\next.gif" />
+    <Content Include="images\next.png" />
+    <Content Include="images\next_bt.gif" />
+    <Content Include="images\next_bt.png" />
+    <Content Include="images\next_bt_gr.png" />
+    <Content Include="images\next_bt_gray.gif" />
+    <Content Include="images\Next_bt_hi.gif" />
+    <Content Include="images\Next_bt_un.gif" />
+    <Content Include="images\None.JPG" />
+    <Content Include="images\NonEmployee.gif" />
+    <Content Include="images\noneper.jpg" />
+    <Content Include="images\non_employee_pass_issue_icon.gif" />
+    <Content Include="images\not_found_icon.gif" />
+    <Content Include="images\number_bg.png" />
+    <Content Include="images\number_bg1.png" />
+    <Content Include="images\Offline.png" />
+    <Content Include="images\OLDsynergy_logo.gif" />
+    <Content Include="images\online Support.png" />
+    <Content Include="images\Online.png" />
+    <Content Include="images\OPScorrect.png" />
+    <Content Include="images\OPSdelete.png" />
+    <Content Include="images\OPSUpdate.png" />
+    <Content Include="images\Orange.PNG" />
+    <Content Include="images\Orange_icon.PNG" />
+    <Content Include="images\out_of_warranty_16.png" />
+    <Content Include="images\out_of_warranty_48.png" />
+    <Content Include="images\packing_charge_info_b.png" />
+    <Content Include="images\padlock.png" />
+    <Content Include="images\page1_AgrProposal.jpg" />
+    <Content Include="images\page1_bg.jpg" />
+    <Content Include="images\page1_FSLS.jpg" />
+    <Content Include="images\page1_Spincotech.jpg" />
+    <Content Include="images\Page1_WPS.jpg" />
+    <Content Include="images\page2_AgrProposal.jpg" />
+    <Content Include="images\page2_FSLS.jpg" />
+    <Content Include="images\page2_header_img.jpg" />
+    <Content Include="images\page2_Spincotech.jpg" />
+    <Content Include="images\Page2_WPS.jpg" />
+    <Content Include="images\page3_AgrProposal.jpg" />
+    <Content Include="images\page3_FSLS.jpg" />
+    <Content Include="images\Page3_Spincotech.jpg" />
+    <Content Include="images\Page3_WPS.jpg" />
+    <Content Include="images\page4_AgrProposal.jpg" />
+    <Content Include="images\page4_FSLS.jpg" />
+    <Content Include="images\page4_img_01.jpg" />
+    <Content Include="images\page4_img_02.jpg" />
+    <Content Include="images\page4_img_03.jpg" />
+    <Content Include="images\Page4_WPS.jpg" />
+    <Content Include="images\page5_AgrProposal.jpg" />
+    <Content Include="images\page5_FSLS.jpg" />
+    <Content Include="images\Page5_WPS.jpg" />
+    <Content Include="images\page6_FSLS.jpg" />
+    <Content Include="images\Page6_WPS.jpg" />
+    <Content Include="images\pageexpired.gif" />
+    <Content Include="images\Page_01.jpg" />
+    <Content Include="images\part_info_b.png" />
+    <Content Include="images\passive.png" />
+    <Content Include="images\password.png" />
+    <Content Include="images\password_icon.png" />
+    <Content Include="images\Pass_Designer.gif" />
+    <Content Include="images\pcPIC.jpg" />
+    <Content Include="images\pdficon.png" />
+    <Content Include="images\Pendingicon.png" />
+    <Content Include="images\pendinglist.png" />
+    <Content Include="images\pendinglist1.png" />
+    <Content Include="images\percentage_100.PNG" />
+    <Content Include="images\percentage_100_16.png" />
+    <Content Include="images\percentage_100_48.png" />
+    <Content Include="images\percentage_25.PNG" />
+    <Content Include="images\percentage_25_16.png" />
+    <Content Include="images\percentage_25_48.png" />
+    <Content Include="images\percentage_50.PNG" />
+    <Content Include="images\percentage_50_16.png" />
+    <Content Include="images\percentage_50_48.png" />
+    <Content Include="images\percentage_75.PNG" />
+    <Content Include="images\percentage_75_16.png" />
+    <Content Include="images\percentage_75_48.png" />
+    <Content Include="images\periodicescalation.jpg" />
+    <Content Include="images\periodicEscalation.png" />
+    <Content Include="images\period_icon.png" />
+    <Content Include="images\pg3_img_01.jpg" />
+    <Content Include="images\pg3_side_img.jpg" />
+    <Content Include="images\phone_icon.gif" />
+    <Content Include="images\Picon_01.jpg" />
+    <Content Include="images\Pict.png" />
+    <Content Include="images\pic_01.jpg" />
+    <Content Include="images\PIN_Details_reports_icon.png" />
+    <Content Include="images\PIN_icon.png" />
+    <Content Include="images\pixel_003.gif" />
+    <Content Include="images\pixel_004.gif" />
+    <Content Include="images\pixel_005.gif" />
+    <Content Include="images\pixel_006.gif" />
+    <Content Include="images\pixel_007.gif" />
+    <Content Include="images\Plogo.jpg" />
+    <Content Include="images\Plogo_1.jpg" />
+    <Content Include="images\plus_icon.png" />
+    <Content Include="images\plus_icon_21_21.png" />
+    <Content Include="images\plus_img.png" />
+    <Content Include="images\PM_icon.png" />
+    <Content Include="images\popup_icon_01.png" />
+    <Content Include="images\popup_icon_03_1.png" />
+    <Content Include="images\prev.png" />
+    <Content Include="images\preview_icon.png" />
+    <Content Include="images\previous_bt.gif" />
+    <Content Include="images\previous_bt.png" />
+    <Content Include="images\previous_bt_gr.png" />
+    <Content Include="images\previous_bt_gray.gif" />
+    <Content Include="images\Previous_bt_hi.gif" />
+    <Content Include="images\Previous_bt_un.gif" />
+    <Content Include="images\prev_bt.png" />
+    <Content Include="images\print.gif" />
+    <Content Include="images\print.jpg" />
+    <Content Include="images\print3.png" />
+    <Content Include="images\printer_icon.png" />
+    <Content Include="images\print_bt.gif" />
+    <Content Include="images\print_icon.gif" />
+    <Content Include="images\print_icon.png" />
+    <Content Include="images\print_preview_icon.png" />
+    <Content Include="images\Privilage.png" />
+    <Content Include="images\prizm.png" />
+    <Content Include="images\prizm_login.gif" />
+    <Content Include="images\prizm_logo1.gif" />
+    <Content Include="images\prizm_logo2.gif" />
+    <Content Include="images\prizm_pixel_001.gif" />
+    <Content Include="images\pri_high_arrow.png" />
+    <Content Include="images\pri_low_arrow.png" />
+    <Content Include="images\Process.gif" />
+    <Content Include="images\product.png" />
+    <Content Include="images\production.png" />
+    <Content Include="images\productivity.png" />
+    <Content Include="images\profile %282%29.png" />
+    <Content Include="images\profile.png" />
+    <Content Include="images\Progressbar.gif" />
+    <Content Include="images\progress_bar.gif" />
+    <Content Include="images\progress_barDev.gif" />
+    <Content Include="images\promo.jpg" />
+    <Content Include="images\promotors.png" />
+    <Content Include="images\Pt-Sp-Accsheader1.gif" />
+    <Content Include="images\questionaire.jpg" />
+    <Content Include="images\questionaire1.png" />
+    <Content Include="images\questionaire2.png" />
+    <Content Include="images\questionaire21.png" />
+    <Content Include="images\questionnaire-icon.gif" />
+    <Content Include="images\Questionnaires.jpg" />
+    <Content Include="images\quotation_icon.png" />
+    <Content Include="images\quotation_management_reports_icon.png" />
+    <Content Include="images\quotation_request_icon.png" />
+    <Content Include="images\rbox_b.gif" />
+    <Content Include="images\rbox_b_l.gif" />
+    <Content Include="images\rbox_b_r.gif" />
+    <Content Include="images\rbox_l.gif" />
+    <Content Include="images\rbox_r.gif" />
+    <Content Include="images\rbox_t.gif" />
+    <Content Include="images\rbox_t_l.gif" />
+    <Content Include="images\rbox_t_r.gif" />
+    <Content Include="images\readonly_img.png" />
+    <Content Include="images\Reallocation.png" />
+    <Content Include="images\recent_items_icon.png" />
+    <Content Include="images\recycle_bin_icon.png" />
+    <Content Include="images\reddummy.png" />
+    <Content Include="images\red_icon.gif" />
+    <Content Include="images\red_icon.png" />
+    <Content Include="images\refresh1_icon.gif" />
+    <Content Include="images\refresh_icon.png" />
+    <Content Include="images\RegionalChannelManager.png" />
+    <Content Include="images\RegionalMaster.png" />
+    <Content Include="images\RegionBranchEscalation.png" />
+    <Content Include="images\Rejecticon.png" />
+    <Content Include="images\reminder_icon.png" />
+    <Content Include="images\remove_files.gif" />
+    <Content Include="images\remove_icon.png" />
+    <Content Include="images\report.png" />
+    <Content Include="images\Reports_Config.gif" />
+    <Content Include="images\reports_icon.png" />
+    <Content Include="images\reports_icon_01.png" />
+    <Content Include="images\reseller_account_template.png" />
+    <Content Include="images\right.gif" />
+    <Content Include="images\right.jpg" />
+    <Content Include="images\right_arrow.png" />
+    <Content Include="images\right_arrow1.png" />
+    <Content Include="images\right_arrow1_hi.png" />
+    <Content Include="images\right_arrow_gr.png" />
+    <Content Include="images\Right_Arrow_WPS_New.png" />
+    <Content Include="images\RMA_request_icon.png" />
+    <Content Include="images\Room.gif" />
+    <Content Include="images\round.png" />
+    <Content Include="images\rsz_tick.png" />
+    <Content Include="images\R_icon.png" />
+    <Content Include="images\save.gif" />
+    <Content Include="images\save_icon.gif" />
+    <Content Include="images\SBIValidation.png" />
+    <Content Include="images\Sbi_logo.png" />
+    <Content Include="images\Schi_bullet.gif" />
+    <Content Include="images\schi_menu_arrow.gif" />
+    <Content Include="images\schi_pixel_01.gif" />
+    <Content Include="images\schi_pixel_02.gif" />
+    <Content Include="images\schi_pixel_03.gif" />
+    <Content Include="images\schi_pixel_04.gif" />
+    <Content Include="images\schi_side_box_right.gif" />
+    <Content Include="images\schi_tab_left.gif" />
+    <Content Include="images\schi_tab_middle.gif" />
+    <Content Include="images\schi_tab_right.gif" />
+    <Content Include="images\scorecard_reports_icon.png" />
+    <Content Include="images\scp_txt.jpg" />
+    <Content Include="images\Searching.gif" />
+    <Content Include="images\search_contact_bt.gif" />
+    <Content Include="images\search_icon.gif" />
+    <Content Include="images\search_icon.png" />
+    <Content Include="images\search_template_bt.gif" />
+    <Content Include="images\Section.gif" />
+    <Content Include="images\security.png" />
+    <Content Include="images\select_bt.gif" />
+    <Content Include="images\select_icon.gif" />
+    <Content Include="images\select_icon.png" />
+    <Content Include="images\send_bt.gif" />
+    <Content Include="images\send_email_bt.gif" />
+    <Content Include="images\Sequrity.png" />
+    <Content Include="images\ServiceCodeMaster.png" />
+    <Content Include="images\servicerequest.gif" />
+    <Content Include="images\services_icon.png" />
+    <Content Include="images\service_request_details_reports_icon.png" />
+    <Content Include="images\service_request_icon.png" />
+    <Content Include="images\service_request_scorecard_reports_icon.png" />
+    <Content Include="images\Setting.gif" />
+    <Content Include="images\settings_icon.png" />
+    <Content Include="images\Shimadzufooter.gif" />
+    <Content Include="images\Shimadzuheader1.gif" />
+    <Content Include="images\shortcuts_bg.png" />
+    <Content Include="images\shortcuts_bt.jpg" />
+    <Content Include="images\shortcuts_icon.png" />
+    <Content Include="images\shortcut_bt.png" />
+    <Content Include="images\Show_all_engineer.png" />
+    <Content Include="images\shrtcuts.png" />
+    <Content Include="images\side_box_left_b.gif" />
+    <Content Include="images\side_box_left_b1.gif" />
+    <Content Include="images\side_box_left_t.gif" />
+    <Content Include="images\side_box_left_t1.gif" />
+    <Content Include="images\side_box_left_t2.gif" />
+    <Content Include="images\side_box_left_t_rev.gif" />
+    <Content Include="images\side_box_right_b.gif" />
+    <Content Include="images\side_box_right_t.gif" />
+    <Content Include="images\side_box_right_t_rev.gif" />
+    <Content Include="images\side_box_top_m.gif" />
+    <Content Include="images\sign_img.jpg" />
+    <Content Include="images\Site.gif" />
+    <Content Include="images\SiteAccessibilityImage.png" />
+    <Content Include="images\slm.png" />
+    <Content Include="images\small_box.gif" />
+    <Content Include="images\Small_Logo.jpg" />
+    <Content Include="images\smile_face.png" />
+    <Content Include="images\sms_config.gif" />
+    <Content Include="images\sortasc.gif" />
+    <Content Include="images\sortdesc.gif" />
+    <Content Include="images\spacer.gif" />
+    <Content Include="images\spam.jpg" />
+    <Content Include="images\spares_management_reports_icon.png" />
+    <Content Include="images\spare_used_icon.png" />
+    <Content Include="images\Spinchromheader1.gif" />
+    <Content Include="images\Spincobiotechheader1.gif" />
+    <Content Include="images\Spincologo.gif" />
+    <Content Include="images\Spincologo.png" />
+    <Content Include="images\Spincologo1new.gif" />
+    <Content Include="images\Spincopdfimg.gif" />
+    <Content Include="images\Spincopdfimg.png" />
+    <Content Include="images\Spincotechheader.gif" />
+    <Content Include="images\Spincotechheader1.gif" />
+    <Content Include="images\SPINCOTECHLLPfooter.gif" />
+    <Content Include="images\Spincotechllpfooter.jpg" />
+    <Content Include="images\SPINCOTECHLLPheader1.gif" />
+    <Content Include="images\Spincotechllpheader1.jpg" />
+    <Content Include="images\Spincotechllpleftside.jpg" />
+    <Content Include="images\spinco_care.jpg" />
+    <Content Include="images\start-icon.png" />
+    <Content Include="images\street-view-blue.png" />
+    <Content Include="images\street-view-blue1.png" />
+    <Content Include="images\street-view-green.png" />
+    <Content Include="images\street-view-green1.png" />
+    <Content Include="images\street-view-purple.png" />
+    <Content Include="images\street-view-purple1.png" />
+    <Content Include="images\street-view-red.png" />
+    <Content Include="images\street-view-red1.png" />
+    <Content Include="images\street-view-yellow.png" />
+    <Content Include="images\street-view-yellow1.png" />
+    <Content Include="images\SubLocation.png" />
+    <Content Include="images\submenu_bg.png" />
+    <Content Include="images\submenu_separator.png" />
+    <Content Include="images\submit_bt.gif" />
+    <Content Include="images\subregister.gif" />
+    <Content Include="images\Substatus.gif" />
+    <Content Include="images\support.png" />
+    <Content Include="images\survecam1.png" />
+    <Content Include="images\surveycam.jpg" />
+    <Content Include="images\surveycam2.png" />
+    <Content Include="images\SwitchToCRM.png" />
+    <Content Include="images\SwitchToRep.png" />
+    <Content Include="images\synergy.gif" />
+    <Content Include="images\synergytitl.jpg" />
+    <Content Include="images\synergy_logo.gif" />
+    <Content Include="images\synergy_logo.png" />
+    <Content Include="images\synergy_logo1.gif" />
+    <Content Include="images\synergy_logo1.png" />
+    <Content Include="images\synergy_logo2.gif" />
+    <Content Include="images\table_top_l.gif" />
+    <Content Include="images\table_top_m.gif" />
+    <Content Include="images\tabs.png" />
+    <Content Include="images\tab_bg.gif" />
+    <Content Include="images\tab_hi_bg.gif" />
+    <Content Include="images\tab_l.gif" />
+    <Content Include="images\tab_m.gif" />
+    <Content Include="images\tab_over_bg.gif" />
+    <Content Include="images\tab_r.gif" />
+    <Content Include="images\tab_separator.gif" />
+    <Content Include="images\Talaris - Logo.jpg" />
+    <Content Include="images\Talaris_Logo.png" />
+    <Content Include="images\task_icon.png" />
+    <Content Include="images\terminology.gif" />
+    <Content Include="images\texticon.png" />
+    <Content Include="images\tick_15.png" />
+    <Content Include="images\toolbar_box_l.gif" />
+    <Content Include="images\toolbar_box_m.gif" />
+    <Content Include="images\toolbar_box_r.gif" />
+    <Content Include="images\top.gif" />
+    <Content Include="images\top_ conner.gif" />
+    <Content Include="images\top_banner.gif" />
+    <Content Include="images\top_banner.jpg" />
+    <Content Include="images\top_body_separator.png" />
+    <Content Include="images\top__conner.gif" />
+    <Content Include="images\Training.png" />
+    <Content Include="images\training_manual_icon.png" />
+    <Content Include="images\transp.gif" />
+    <Content Include="images\TR_5yrwarranty.png" />
+    <Content Include="images\UDF.gif" />
+    <Content Include="images\up.png" />
+    <Content Include="images\update_activity.gif" />
+    <Content Include="images\update_icon.png" />
+    <Content Include="images\up_arrow.png" />
+    <Content Include="images\up_arrow_green.png" />
+    <Content Include="images\Up_Arrow_Icon.png" />
+    <Content Include="images\usability.png" />
+    <Content Include="images\usable.png" />
+    <Content Include="images\user-profile.png" />
+    <Content Include="images\User.gif" />
+    <Content Include="images\username.png" />
+    <Content Include="images\userprevilage.jpg" />
+    <Content Include="images\userprivilege.png" />
+    <Content Include="images\Users.gif" />
+    <Content Include="images\user_defined_reports_icon.png" />
+    <Content Include="images\user_icon.png" />
+    <Content Include="images\User_Role.gif" />
+    <Content Include="images\user_txtbox_bg.png" />
+    <Content Include="images\UTCEscaimg.gif" />
+    <Content Include="images\UTCEscImg1.png" />
+    <Content Include="images\UTC_logo1.jpg" />
+    <Content Include="images\UTC_logo2.jpg" />
+    <Content Include="images\UTC_logo3.jpg" />
+    <Content Include="images\UTC_Logo_testimg.png" />
+    <Content Include="images\Vault.png" />
+    <Content Include="images\VaultApproval.png" />
+    <Content Include="images\vaultapproval1.png" />
+    <Content Include="images\vaultbatchrun.png" />
+    <Content Include="images\vaultbatchrun1.png" />
+    <Content Include="images\vaultbatchrun2.png" />
+    <Content Include="images\VaultBinMaster.png" />
+    <Content Include="images\vaultopeningbalupdate.png" />
+    <Content Include="images\vehicle.gif" />
+    <Content Include="images\Vendor.gif" />
+    <Content Include="images\Videomanual_icon.png" />
+    <Content Include="images\ViewQuotation.png" />
+    <Content Include="images\view_icon.png" />
+    <Content Include="images\vortex_logo.jpg" />
+    <Content Include="images\vortex_logo.png" />
+    <Content Include="images\vortex_logo1.jpg" />
+    <Content Include="images\vortex_logo_2.png" />
+    <Content Include="images\vortex_logo_cog.png" />
+    <Content Include="images\warranty_100_48.png" />
+    <Content Include="images\warranty_25_48.png" />
+    <Content Include="images\warranty_50_48.png" />
+    <Content Include="images\warranty_75_48.png" />
+    <Content Include="images\welcome_message.gif" />
+    <Content Include="images\welcome_message_b.gif" />
+    <Content Include="images\White.PNG" />
+    <Content Include="images\Wishes.jpg" />
+    <Content Include="images\wishes_alert_bg.png" />
+    <Content Include="images\wishes_bg.jpg" />
+    <Content Include="images\Wishes_Mobile.jpg" />
+    <Content Include="images\wish_icon.png" />
+    <Content Include="images\WorkInProgress.png" />
+    <Content Include="images\WPSfooter.jpg" />
+    <Content Include="images\WPSheader.jpg" />
+    <Content Include="images\xlsicon.png" />
+    <Content Include="images\XsltDesigner.png" />
+    <Content Include="images\yellow.PNG" />
+    <Content Include="images\Yellow_icon.png" />
+    <Content Include="images\Zip_icon.png" />
+    <Content Include="images\Zone.png" />
+    <Content Include="images\zoom_bt.gif" />
+    <Content Include="images\zoom_icon.png" />
+    <Content Include="images\zoom_in_bt.gif" />
+    <Content Include="images\zoom_in_icon.png" />
+    <Content Include="images\zoom_out_bt.gif" />
+    <Content Include="images\zoom_out_icon.png" />
+    <Content Include="images\~customer_logo.png" />
+    <Content Include="images\~login_bg.jpg" />
+    <Content Include="images\~login_bg_Cash_management.jpg" />
+    <Content Include="images\~login_bg_Customer.jpg" />
+    <Content Include="images\~login_cms_logo.gif" />
+    <Content Include="images\~login_vortex_logo.gif" />
+    <Content Include="images\~side_box_left_t_rev.gif" />
+    <Content Include="images\~side_box_right_t_rev.gif" />
+    <Content Include="images\~vortex_logo.png" />
+    <Content Include="images\~~login_vortex_logo.gif" />
+    <Content Include="images\~~~vortex_logo.png" />
+    <Content Include="Installation.aspx" />
+    <Content Include="InstallFollowUp.aspx" />
+    <Content Include="InstallSummary.aspx" />
+    <Content Include="js\jquery.carouFredSel-6.2.1-packed.js" />
+    <Content Include="js\jquery_3_1_1.min.js" />
+    <Content Include="js\SearchCalender.js" />
+    <Content Include="Master\AddEngineer.aspx" />
+    <Content Include="Master\AddNewProduct.aspx" />
+    <Content Include="Master\css\Masterlist.css" />
+    <Content Include="Master\images\AccountMaster.svg" />
+    <Content Include="Master\images\AddMaster.svg" />
+    <Content Include="Master\images\AddMasterhover.svg" />
+    <Content Include="Master\images\ColumnMaster.svg" />
+    <Content Include="Master\images\CustomerLoginMaster.svg" />
+    <Content Include="Master\images\DetailMaster.svg" />
+    <Content Include="Master\images\DetailMasterhover.svg" />
+    <Content Include="Master\images\DinamicFieldMaster.svg" />
+    <Content Include="Master\images\EngineerMaster.svg" />
+    <Content Include="Master\images\GroupLeaderMaster.svg" />
+    <Content Include="Master\images\LocationMaster.svg" />
+    <Content Include="Master\images\LoginMaster.svg" />
+    <Content Include="Master\images\RegionMaster.svg" />
+    <Content Include="Master\images\ServiceAccessMaster.svg" />
+    <Content Include="Master\images\UserPrivilegeMaster.svg" />
+    <Content Include="Master\images\VendorMaster.svg" />
+    <Content Include="Master\MasterList.aspx" />
+    <Content Include="Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <Content Include="Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="newform.aspx" />
+    <Content Include="PDFDownload.aspx" />
+    <Content Include="Reports\EngineerLiveTraking.aspx" />
+    <Content Include="Reports\ReportList.aspx" />
+    <Content Include="SampleDesign\SampleFollowUp.aspx" />
+    <Content Include="SampleDesign\SampleRequests.aspx" />
+    <Content Include="SampleDesign\Samples.aspx" />
+    <Content Include="SampleDesign\SampleSummary.aspx" />
+    <Content Include="ServiceRequest.aspx" />
+    <Content Include="Successfully.aspx" />
+    <Content Include="Test.aspx" />
+    <Content Include="UserControl\BarChart.ascx" />
+    <Content Include="UserControl\DoughNutChart.ascx" />
+    <Content Include="UserControl\GaugeChart.ascx" />
+    <Content Include="UserControl\LineChart.ascx" />
+    <Content Include="UserControl\PieChart.ascx" />
+    <Content Include="UserControl\ScatterChart.ascx" />
+    <Content Include="UserControl\Test.ascx" />
+    <Content Include="Web.config" />
+    <Content Include="WebForm1.aspx" />
+    <Content Include="WebService.asmx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Account.aspx.cs">
+      <DependentUpon>Account.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account.aspx.designer.cs">
+      <DependentUpon>Account.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AccountSummary.aspx.cs">
+      <DependentUpon>AccountSummary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AccountSummary.aspx.designer.cs">
+      <DependentUpon>AccountSummary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddAccount.aspx.cs">
+      <DependentUpon>AddAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddAccount.aspx.designer.cs">
+      <DependentUpon>AddAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddContack.aspx.cs">
+      <DependentUpon>AddContack.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddContack.aspx.designer.cs">
+      <DependentUpon>AddContack.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddInstallation.aspx.cs">
+      <DependentUpon>AddInstallation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddInstallation.aspx.designer.cs">
+      <DependentUpon>AddInstallation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddServiceRequest.aspx.cs">
+      <DependentUpon>AddServiceRequest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddServiceRequest.aspx.designer.cs">
+      <DependentUpon>AddServiceRequest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="apalogin.aspx.cs">
+      <DependentUpon>apalogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="apalogin.aspx.designer.cs">
+      <DependentUpon>apalogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AutoCompleteTextbox.aspx.cs">
+      <DependentUpon>AutoCompleteTextbox.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AutoCompleteTextbox.aspx.designer.cs">
+      <DependentUpon>AutoCompleteTextbox.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CATRAGE.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="COMPUTER.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="demo.aspx.cs">
+      <DependentUpon>demo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="demo.aspx.designer.cs">
+      <DependentUpon>demo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditAccount.aspx.cs">
+      <DependentUpon>EditAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditAccount.aspx.designer.cs">
+      <DependentUpon>EditAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditInstallation.aspx.cs">
+      <DependentUpon>EditInstallation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditInstallation.aspx.designer.cs">
+      <DependentUpon>EditInstallation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="finance.aspx.cs">
+      <DependentUpon>finance.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="finance.aspx.designer.cs">
+      <DependentUpon>finance.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home.aspx.cs">
+      <DependentUpon>home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home.aspx.designer.cs">
+      <DependentUpon>home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Installation.aspx.cs">
+      <DependentUpon>Installation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Installation.aspx.designer.cs">
+      <DependentUpon>Installation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InstallFollowUp.aspx.cs">
+      <DependentUpon>InstallFollowUp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InstallFollowUp.aspx.designer.cs">
+      <DependentUpon>InstallFollowUp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InstallSummary.aspx.cs">
+      <DependentUpon>InstallSummary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InstallSummary.aspx.designer.cs">
+      <DependentUpon>InstallSummary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Master\AddEngineer.aspx.cs">
+      <DependentUpon>AddEngineer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master\AddEngineer.aspx.designer.cs">
+      <DependentUpon>AddEngineer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Master\AddNewProduct.aspx.cs">
+      <DependentUpon>AddNewProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master\AddNewProduct.aspx.designer.cs">
+      <DependentUpon>AddNewProduct.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Master\MasterList.aspx.cs">
+      <DependentUpon>MasterList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master\MasterList.aspx.designer.cs">
+      <DependentUpon>MasterList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="newform.aspx.cs">
+      <DependentUpon>newform.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newform.aspx.designer.cs">
+      <DependentUpon>newform.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PDFDownload.aspx.cs">
+      <DependentUpon>PDFDownload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PDFDownload.aspx.designer.cs">
+      <DependentUpon>PDFDownload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Printer.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\EngineerLiveTraking.aspx.cs">
+      <DependentUpon>EngineerLiveTraking.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\EngineerLiveTraking.aspx.designer.cs">
+      <DependentUpon>EngineerLiveTraking.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportList.aspx.cs">
+      <DependentUpon>ReportList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportList.aspx.designer.cs">
+      <DependentUpon>ReportList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SampleDesign\SampleFollowUp.aspx.cs">
+      <DependentUpon>SampleFollowUp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SampleDesign\SampleFollowUp.aspx.designer.cs">
+      <DependentUpon>SampleFollowUp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SampleDesign\SampleRequests.aspx.cs">
+      <DependentUpon>SampleRequests.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SampleDesign\SampleRequests.aspx.designer.cs">
+      <DependentUpon>SampleRequests.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SampleDesign\Samples.aspx.cs">
+      <DependentUpon>Samples.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SampleDesign\Samples.aspx.designer.cs">
+      <DependentUpon>Samples.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SampleDesign\SampleSummary.aspx.cs">
+      <DependentUpon>SampleSummary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SampleDesign\SampleSummary.aspx.designer.cs">
+      <DependentUpon>SampleSummary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceRequest.aspx.cs">
+      <DependentUpon>ServiceRequest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ServiceRequest.aspx.designer.cs">
+      <DependentUpon>ServiceRequest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Successfully.aspx.cs">
+      <DependentUpon>Successfully.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Successfully.aspx.designer.cs">
+      <DependentUpon>Successfully.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Test.aspx.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Test.aspx.designer.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestClass.cs" />
+    <Compile Include="UserControl\BarChart.ascx.cs">
+      <DependentUpon>BarChart.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\BarChart.ascx.designer.cs">
+      <DependentUpon>BarChart.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\DoughNutChart.ascx.cs">
+      <DependentUpon>DoughNutChart.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\DoughNutChart.ascx.designer.cs">
+      <DependentUpon>DoughNutChart.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\GaugeChart.ascx.cs">
+      <DependentUpon>GaugeChart.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\GaugeChart.ascx.designer.cs">
+      <DependentUpon>GaugeChart.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\LineChart.ascx.cs">
+      <DependentUpon>LineChart.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\LineChart.ascx.designer.cs">
+      <DependentUpon>LineChart.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\PieChart.ascx.cs">
+      <DependentUpon>PieChart.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\PieChart.ascx.designer.cs">
+      <DependentUpon>PieChart.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\ScatterChart.ascx.cs">
+      <DependentUpon>ScatterChart.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\ScatterChart.ascx.designer.cs">
+      <DependentUpon>ScatterChart.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Test.ascx.cs">
+      <DependentUpon>Test.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\Test.ascx.designer.cs">
+      <DependentUpon>Test.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebService.asmx.cs">
+      <DependentUpon>WebService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <Content Include="Attach\23620241744618.pdf" />
+    <Content Include="images\DS_Store" />
+    <None Include="packages.config" />
+    <Content Include="Site.Master" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Master\js\" />
+    <Folder Include="Ticket\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>62476</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44327/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

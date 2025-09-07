@@ -1,0 +1,378 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="apa_pack.Site" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+
+     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+
+     <%--boostrap icon--%>
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+
+   
+    <link href="css/home.css" rel="stylesheet" />
+
+    <%-- --- FOR FONT FAMILY --%>
+
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+
+    <%-- --- --%>
+
+
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+
+    </asp:ContentPlaceHolder>
+    
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <!-- Bootstrap 5 + Font Awesome -->
+<%--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">--%>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+
+    <style>
+        body {
+            background: linear-gradient(to right, #fffbe6, #fff3cd);
+        }
+        header {
+            background: linear-gradient(135deg, #f59e0b, #facc15);
+        }
+        .nav-link:hover {
+            color: #1e3a8a;
+        }
+        .nav-link {
+            color: #78350f;
+        }
+        .dropdown-menu.show {
+            display: grid;
+        }
+        ul.dropdown-menu.show {
+            /*margin-top: 21px!important;*/
+            width: 220px!important;
+            inset: auto !important;
+        }
+         
+         
+    </style>
+
+
+    <script type="text/javascript">
+
+        function test() {
+          
+            var userList = document.getElementById('UserList');
+           
+            userList.style.display = (userList.style.display == 'none' || userList.style.display == '') ? 'block' : 'none';
+     
+        }
+
+        function toggleDropdown() {
+            document.getElementById("userDropdown").classList.toggle("active");
+        }
+
+        document.addEventListener("click", function (e) {
+            const dropdown = document.getElementById("userDropdown");
+            const toggle = document.querySelector(".user-toggle");
+            if (!toggle.contains(e.target) && !dropdown.contains(e.target)) {
+                dropdown.classList.remove("active");
+            }
+        });
+
+
+        function logoutNow() {
+            document.getElementById('<%= but_Logout.ClientID %>').click();
+        }
+        
+
+    </script>
+
+
+    <style>
+        .user-menu {
+            position: relative;
+            display: inline-block;
+        }
+
+        .user-toggle {
+            background-color: #fde8a8;
+            padding: 6px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .user-dropdown {
+            position: absolute;
+            right: 25px;
+            /*top: 100%;*/
+            min-width: 260px;
+            width: auto;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            padding: 1rem;
+            z-index: 1000;
+            display: none;
+            margin: 4px;
+            font-family:poppins;
+            color:#000000;
+            font-size:12px;
+        }
+
+            .user-dropdown.active {
+                display: block;
+                margin: 4px;
+            }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 1rem;
+        }
+
+            .user-info img {
+                width: 45px;
+                height: 45px;
+                border-radius: 50%;
+            }
+
+        .user-list li {
+            padding: 10px 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            border-top: 1px solid #eee;
+        }
+
+            .user-list li:first-child {
+                border-top: none;
+            }
+            .user-list li:hover {
+                background-color:#fde8a8;
+                border-radius: 5px;
+            }
+
+        .logout-item {
+            background-color: #ffe5e5;
+            /*color: #d32f2f;*/
+            border-radius: 5px;
+            padding: 10px;
+            font-weight: 500;
+            margin-top: 10px;
+            color:#000000;
+        }
+        .logout-item:hover{
+            background-color: #FFA3A3;
+             
+        }
+
+        @media (max-width: 576px) {
+            .user-dropdown {
+                left: 0;
+                right: auto;
+                width: 100vw;
+                border-radius: 0;
+            }
+        }
+    </style>
+
+     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+ 
+    
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+ 
+    <style>
+        .nav-link img {
+            height: 15px;
+            width: 15px;
+            margin-right: 6px;
+        }
+    </style>
+
+</head>
+<body>
+    <form id="form_logout" runat="server">
+
+
+        <%--<header class="text-white py-3 px-6 flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <div class="text-2xl font-bold">LOGO</div>
+                    <nav class="hidden md:flex space-x-6">
+                        <a href="#" class="nav-link">Home</a>
+                        <a href="#" class="nav-link">Account</a>
+                        <a href="#" class="nav-link">Installation</a>
+                        <a href="#" class="nav-link">Service Request</a>
+                        <a href="#" class="nav-link">Report</a>
+                        <a href="#" class="nav-link">Admin</a>
+                    </nav>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <button class="bg-white text-yellow-600 px-4 py-2 rounded-lg hover:bg-yellow-200">Logout</button>
+                    <button class="md:hidden focus:outline-none">
+                        <svg class="w-6 h-6 text-yellow-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </header>--%>
+
+   <div class="container-fluid">
+
+
+            <%--HEADER ROW--%>
+
+            
+
+            <div class="row">
+
+                <div id="head_left_div" class="col-md-2">
+                    <div class="title">
+                        <h1 class="text-2xl font-bold">L O G O </h1> 
+                    </div>
+
+                </div>
+
+                <div id="head_right_div" class="col-md-8">
+                    <div class="row" id="nav_div">
+                        <ul id="nav_ul">
+                            <li class="nav_li"><a href="../home.aspx"><img src="../images/Dashboard.svg" style="height:15px;width:15px;" />Dashboard</a></li>
+                            <li class="nav_li"><a href="../Account.aspx"><img src="../images/Account.svg" style="height:15px;width:15px;" />Account</a></li>
+                            <li class="nav_li"><a href="../Installation.aspx"><img src="../images/Installation.svg" style="height:15px;width:15px;" />Installation</a></li>
+                            <li class="nav_li"><a href="../ServiceRequest.aspx"><img src="../images/ServiceRequest.svg" style="height:15px;width:15px;" />Service Request</a></li>
+                            <li class="nav_li"><a href="../AutoCompleteTextbox.aspx"><img src="../images/PM.svg" style="height:15px;width:15px;" />PM</a></li>
+                            <li class="nav_li"><a href="../finance.aspx"><img src="../images/Agreement.svg" style="height:15px;width:15px;" />Agreement</a></li>
+                            <li class="nav_li"><a href="../demo.aspx"><img src="../images/RMA.svg" style="height:15px;width:15px;" />RMA</a></li>
+                            <li class="nav_li"><a href="../Reports/ReportList.aspx"><img src="../images/Reports.svg" style="height:15px;width:15px;" />Report</a></li>
+                            <li class="nav_li"><a href="../Master/MasterList.aspx"><img src="../images/Admin.svg" style="height:15px;width:15px;" />Admin</a></li>
+
+                            <li class="nav_li dropdown">
+                                <a class="dropdown-toggle" href="#" id="moreDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="../images/More.svg" style="height: 15px; width: 15px;" />More
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="moreDropdown">
+                                    <li class="nav_li"><a href="#"><img src="../images/Account.svg" style="height:15px;width:15px;" />Sales</a></li>
+                                    <li class="nav_li"><a href="#"><img src="../images/Account.svg" style="height:15px;width:15px;" />Purchase</a></li>
+                                    <li class="nav_li"><a href="#"><img src="../images/Account.svg" style="height:15px;width:15px;" />Production</a></li>
+                                    <li class="nav_li"><a href="#"><img src="../images/Account.svg" style="height:15px;width:15px;" />Gate Entry</a></li>
+                                    <li class="nav_li"><a href="#"><img src="../images/Account.svg" style="height:15px;width:15px;" />Task Management</a></li>
+                                    <li class="nav_li"><a href="../SampleDesign/samples.aspx" ><img src="../images/Sample-design.png" style="height:15px;width:15px;" />Samples</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                           
+                                 
+  
+                             
+
+                             
+                    </div>
+                </div>
+
+
+                <div class="col-md-2 logout_d">
+                    <div class="Userinfocontainer" id="Userinfo" onclick="toggleDropdown()">
+                        
+                        <span><img src="../images/NoUser.svg" style="height:30px;width:30px;" /></span>
+                        <span><asp:Label ID="Label1" runat="server"></asp:Label></span>
+                        <span><img src="../images/DropDownArrow.svg" style="height:20px;width:20px;" /></span>
+                        
+                    </div>
+                    
+
+                    <!-- Dropdown Menu -->
+                    <div class="user-dropdown" id="userDropdown">
+                        <!-- User Info -->
+                        <div class="user-info">
+                            <img src="../images/NoUser.svg" alt="User">
+                            <div style="width: 100%;text-align: left;">
+                                <div class="fw-bold">Karthick</div>
+                                <small class="text-muted">Last Login : 05 Sep 2024</small>
+                            </div>
+                        </div>
+
+                        <!-- List Items -->
+                        <ul class="list-unstyled user-list mb-0">
+                            <li>
+                                <span>Manage Account</span>
+                                <i class="fas fa-gear"></i>
+                            </li>
+                            <li>
+                                <span>Training Manual</span>
+                                <i class="fas fa-book-open"></i>
+                            </li>
+                            <li>
+                                <span>Download Centre</span>
+                                <i class="fas fa-download"></i>
+                            </li>
+                        </ul>
+
+                        <!-- Logout Button -->
+                        <div class="logout-item d-flex justify-content-between align-items-center mt-3" onclick="logoutNow()">
+                            <span>Logout</span>
+                            <asp:Button ID="but_Logout" runat="server" Text="Logout" class="btn btn-dark" Style="height: 30px;display:none;" OnClick="but_Logout_Click" />
+                       
+                            <i class="fas fa-right-from-bracket"></i>
+                        </div>
+                    </div>
+                </div>
+
+                  
+
+                </div>
+                 
+
+            </div>
+
+
+            <%--MAIN ROW--%>
+
+            <asp:ScriptManager ID="ScriptManager1" runat="server">
+            </asp:ScriptManager>
+            <div class="row">
+
+
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+
+
+
+            </div>
+
+
+            <%--FOOTER ROW--%>
+
+            <div class="row">
+                 
+                <%--<div id="food" class="col-md-12">
+                   
+                    <div style="color:red;" align="center">
+                        <asp:Label ID="Label2" runat="server"> © 2023 Copyright: CRM.com </asp:Label>
+                    </div>
+
+                    <div style="">
+                    </div>
+
+                </div>--%>
+
+
+
+                <asp:HiddenField ID="hdnstudent_id" runat="server" />
+
+            </div>
+
+       
+    </form>
+</body>
+</html>

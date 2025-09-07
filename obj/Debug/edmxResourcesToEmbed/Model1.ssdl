@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SystemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CATRAGE">
+    <Key>
+      <PropertyRef Name="CATRAGE_ID" />
+    </Key>
+    <Property Name="CATRAGE_ID" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="USER_NAME" Type="varchar" MaxLength="30" />
+    <Property Name="CFD_1" Type="date" />
+    <Property Name="ED_1" Type="date" />
+    <Property Name="CFD_2" Type="date" />
+    <Property Name="ED_2" Type="date" />
+    <Property Name="CFD_3" Type="date" />
+    <Property Name="ED_3" Type="date" />
+    <Property Name="PRINTERS_ID" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="COMPUTERS">
+    <Key>
+      <PropertyRef Name="COM_ID" />
+    </Key>
+    <Property Name="COM_ID" Type="int" Nullable="false" />
+    <Property Name="COMPUTER_NAME" Type="varchar" MaxLength="50" />
+    <Property Name="PROCESSOR" Type="varchar" MaxLength="100" />
+    <Property Name="SYSTEM_TYPE" Type="varchar" MaxLength="100" />
+    <Property Name="RAM" Type="varchar" MaxLength="10" />
+    <Property Name="SYSTEM_MANUFACTURE" Type="varchar" MaxLength="30" />
+    <Property Name="SYSTEM_MODEL" Type="varchar" MaxLength="30" />
+    <Property Name="GRAFIC_CARD" Type="varchar" MaxLength="5" />
+    <Property Name="OPRATING_SYSTEM" Type="varchar" MaxLength="30" />
+    <Property Name="LOCATIONS" Type="varchar" MaxLength="30" />
+    <Property Name="USER_NAME" Type="varchar" MaxLength="50" />
+    <Property Name="PASSWORD" Type="varchar" MaxLength="30" />
+    <Property Name="MONITOR" Type="varchar" MaxLength="30" />
+    <Property Name="UPS" Type="varchar" MaxLength="5" />
+    <Property Name="KEYBOARD_MOUSE" Type="varchar" MaxLength="5" />
+    <Property Name="MICRO_USB_ADAPTER" Type="varchar" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="Printers">
+    <Key>
+      <PropertyRef Name="Printer_ID" />
+    </Key>
+    <Property Name="Printer_ID" Type="smallint" Nullable="false" />
+    <Property Name="Printer_Name" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Printer_Type" Type="varchar" MaxLength="20" />
+    <Property Name="User_Name" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Location" Type="varchar" MaxLength="30" />
+    <Property Name="Status" Type="varchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK__CATRAGE__PRINTER__6383C8BA">
+    <End Role="Printers" Type="Self.Printers" Multiplicity="1" />
+    <End Role="CATRAGE" Type="Self.CATRAGE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Printers">
+        <PropertyRef Name="Printer_ID" />
+      </Principal>
+      <Dependent Role="CATRAGE">
+        <PropertyRef Name="PRINTERS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SystemModelStoreContainer">
+    <EntitySet Name="CATRAGE" EntityType="Self.CATRAGE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="COMPUTERS" EntityType="Self.COMPUTERS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Printers" EntityType="Self.Printers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__CATRAGE__PRINTER__6383C8BA" Association="Self.FK__CATRAGE__PRINTER__6383C8BA">
+      <End Role="Printers" EntitySet="Printers" />
+      <End Role="CATRAGE" EntitySet="CATRAGE" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

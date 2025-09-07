@@ -1,0 +1,209 @@
+-------------------- Table Creation 
+
+CREATE TABLE [dbo].[ContMast](
+	[ContCode] [char](10) NOT NULL,
+	[Name] [varchar](100) NULL,
+	[Initial] [varchar](100) NULL,
+	[JobTitle] [varchar](100) NULL,
+	[Salutation] [varchar](50) NULL,
+	[WorkNo] [varchar](100) NULL,
+	[HomeNo] [varchar](100) NULL,
+	[PagerNo] [varchar](30) NULL,
+	[MobileNo] [varchar](100) NULL,
+	[Fax] [varchar](30) NULL,
+	[Assistant] [varchar](50) NULL,
+	[Assistant1] [varchar](50) NULL,
+	[AccCode] [varchar](10) NULL,
+	[Address] [varchar](150) NULL,
+	[City] [varchar](30) NULL,
+	[State] [varchar](50) NULL,
+	[Country] [varchar](50) NULL,
+	[Pincode] [int] NULL,
+	[EMail] [varchar](100) NULL,
+	[site] [varchar](30) NULL,
+	[Department] [varchar](100) NULL,
+	[Phone] [varchar](30) NULL,
+	[Email2] [varchar](100) NULL,
+	[MobileNo2] [varchar](30) NULL,
+	[lockflg] [bit] NULL,
+	[C_lockeddate] [datetime] NULL,
+	[Cont_createdate] [datetime] NULL,
+	[Cont_createdby] [varchar](50) NULL,
+	[Identifier] [varchar](500) NULL,
+	[LLB] [bit] NULL,
+	[CHY] [bit] NULL,
+	[LS] [bit] NULL,
+	[CCP] [bit] NULL,
+	[ContactType] [varchar](100) NULL,
+	[Comments] [varchar](4000) NULL,
+	[Cont_UpdateComments] [varchar](1000) NULL,
+	[Cont_ModifiedBy] [varchar](50) NULL,
+	[Cont_ModifiedDate] [datetime] NULL
+) ON [PRIMARY]
+
+ 
+
+
+
+CREATE TABLE [dbo].[ContMastLookup](
+	[Code] [char](10) NOT NULL,
+	[authorcode] [varchar](30) NULL,
+	[authortype] [varchar](30) NULL,
+	[HOCode] [varchar](10) NULL,
+	[ROCode] [varchar](10) NULL,
+	[LocationCode] [varchar](10) NULL,
+	[CSECode] [varchar](10) NULL,
+	[vendorcode] [varchar](10) NULL,
+	[PsCode] [varchar](10) NULL
+) ON [PRIMARY]
+
+ 
+
+
+--------------------------- SP Creation
+
+
+ 
+CREATE PROC [dbo].[ContMast_Insert]            
+@Name VARCHAR(50),            
+@Salutation VARCHAR(50),            
+@JobTitle VARCHAR(50),            
+@Dept VARCHAR(50),            
+@Phone VARCHAR(30),            
+@Residance VARCHAR(30),            
+@Mobile VARCHAR(30),            
+@Mobile1 VARCHAR(30),            
+@fax VARCHAR(50),            
+@Email VARCHAR(100),            
+@Email1 VARCHAR(100),            
+@AccCode VARCHAR(10),            
+@CreatedBy varchar(100),                           
+@identifier varchar(500),    
+@KeyGen1 varchar(10) output            
+AS            
+BEGIN TRY            
+BEGIN TRAN            
+DECLARE @ContCode VARCHAR(10)            
+           
+SET @ContCode =(Select RIGHT(REPLICATE('0', 10) + CAST(ContCode AS varchar(6)), 10) From KeyGeneration)            
+           
+           
+select @ContCode            
+           
+INSERT INTO ContMast(            
+[ContCode],            
+[Name],[Initial],[JobTitle],[Salutation],[WorkNo],[HomeNo],[PagerNo],[MobileNo],[Fax],[Assistant],[Assistant1],[AccCode]            
+,[Address],[City],[State],[Country],[Pincode],[EMail],[site],[Department],[Phone],[Email2],[MobileNo2],Cont_createdby,Cont_createdate,[Identifier]           
+)            
+SELECT            
+@ContCode,            
+@Name,NULL,@JobTitle,@Salutation,@Phone,@Residance,NULL,@Mobile,@fax,NULL,NULL,@AccCode            
+, LEFT(Address,150),City,State,Country,Pincode,@Email,'',@Dept,NULL,@Email1,@Mobile1,@CreatedBy,dbo.getCountryDate(),@identifier          
+FROM AccMast WITH (NOLOCK) WHERE AccCode = @AccCode            
+           
+           
+           
+insert into ContMastLookup (Code,authorcode,authortype,PSCode)            
+values (@ContCode,NULL,NULL,NULL)            
+           
+insert into userlog values(@CreatedBy,dbo.getcountryDate(),'Contact',@ContCode,'New Contact Creation')            
+           
+           
+           
+UPDATE sales.KeyGeneration SET ContCode=ContCode+1            
+UPDATE dbo.KeyGeneration SET ContCode=ContCode+1            
+           
+select @ContCode            
+           
+set @KeyGen1=@ContCode            
+select @KeyGen1            
+           
+COMMIT            
+END TRY            
+BEGIN CATCH            
+ROLLBACK            
+END CATCH
+GO
+
+
+
+
+
+---------------------------------------------------------- Update
+
+
+ 
+CREATE PROC [dbo].[ContMast_Update]              
+@ContCode VARCHAR(10),              
+@Name VARCHAR(50),                
+@Salutation VARCHAR(50),                
+@JobTitle VARCHAR(50),                
+@Dept VARCHAR(50),                
+@Phone VARCHAR(30),                
+@Residance VARCHAR(30),                
+@Mobile VARCHAR(30),                
+@Mobile1 VARCHAR(30),                
+@fax VARCHAR(50),                
+@Email VARCHAR(100),                
+@Email1 VARCHAR(100),                
+@AccCode VARCHAR(10),          
+@CreatedBy varchar(100),    
+@Identifier varchar(100) 
+ 
+               
+AS                
+BEGIN TRY                
+BEGIN TRAN                
+               
+              
+UPDATE ContMast SET Name=@Name,Salutation=@Salutation,JobTitle=@JobTitle,Department=@Dept,WorkNo=@Phone,HomeNo=@Residance,fax=@fax,MobileNo=@Mobile,MobileNo2=@Mobile1,EMail=@Email,Email2=@Email1,Identifier=@identifier FROM ContMast
+  WITH(NOLOCK) WHERE ContCode =@ContCode             
+       
+insert into userlog values(@CreatedBy,dbo.getcountryDate(),'Contact',@ContCode,'Edit Contact')                   
+                
+COMMIT                
+END TRY                
+BEGIN CATCH                
+ROLLBACK                
+END CATCH
+GO
+
+
+
+
+---------------------------------------- Delete
+
+
+ 
+CREATE PROC [dbo].[ContMast_Delete]    
+
+
+
+@ContCode VARCHAR(10)   
+
+
+
+AS      
+
+
+
+BEGIN        
+
+
+
+--DELETE  FROM ContMast WHERE ContCode = @ContCode      
+
+
+
+Update ContMast set Lockflg=1,C_lockeddate=GETDATE() WHERE ContCode = @ContCode    
+
+
+
+ 
+
+
+
+END 
+GO
+
+

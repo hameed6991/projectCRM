@@ -1,0 +1,258 @@
+
+CREATE TABLE SampleRequestMaster (
+    SampleID INT IDENTITY(1,1) PRIMARY KEY,      -- Auto-increment Sample ID
+    SampleCode VARCHAR(50) NOT NULL,             -- Manual / ERP generated code
+
+    CustomerName VARCHAR(200) NOT NULL,
+    RequestDate DATETIME NOT NULL,
+    ContactPerson VARCHAR(150) NULL,
+    SalesExecutive VARCHAR(150) NULL,
+
+    SampleRequestType VARCHAR(100) NULL,         -- e.g., New Development / Repeat
+    Priority VARCHAR(50) NULL,                   -- e.g., High / Medium / Low
+    Comments VARCHAR(500) NULL,
+
+    LengthMM DECIMAL(10,2) NULL,
+    WidthMM DECIMAL(10,2) NULL,
+    HeightMM DECIMAL(10,2) NULL,
+
+    ReelSizeMM DECIMAL(10,2) NULL,
+    CuttingSizeMM DECIMAL(10,2) NULL,
+
+    Ply INT NULL,                                -- e.g., 3 / 5 / 7 ply
+    SampleDescription VARCHAR(500) NULL,
+
+    DesignType VARCHAR(100) NULL,                -- Linked with Dropdownmast (RSC/HSC/etc.)
+    RequestQuantity INT NULL,
+
+    PaperCombination VARCHAR(500) NULL,          -- e.g., Flute-A, GSM-180, BF-25, Shade-Kraft
+    ExpectedOrderWonDate DATE NULL,
+
+    SampleStatus VARCHAR(100) NULL,              -- e.g., Pending / Approved / Rejected
+
+    CreatedBy VARCHAR(100) NOT NULL,
+    CreatedDate DATETIME NOT NULL DEFAULT GETDATE(),
+    ModifyDate DATETIME NULL,
+    ModifyBy VARCHAR(100) NULL
+);	
+
+
+
+
+
+
+
+
+-------------------- SP
+
+ 
+
+CREATE PROCEDURE [dbo].[SP_AddSampleRequestMaster]
+ 
+    @CustomerName VARCHAR(100),
+    @RequestDate DATETIME,
+    @ContactPerson VARCHAR(100),
+    @SalesExecutive VARCHAR(100),
+    @SampleRequestType VARCHAR(50),
+    @Priority VARCHAR(20),
+    @Comments VARCHAR(200) = NULL,
+    @LengthMM DECIMAL(10,2) = NULL,
+    @WidthMM DECIMAL(10,2) = NULL,
+    @HeightMM DECIMAL(10,2) = NULL,
+    @ReelSizeMM DECIMAL(10,2) = NULL,
+    @CuttingSizeMM DECIMAL(10,2) = NULL,
+    @Ply INT = NULL,
+    @SampleDescription VARCHAR(200) = NULL,
+    @DesignType VARCHAR(50) = NULL,
+    @RequestQuantity INT = NULL,
+    @PaperCombination VARCHAR(200) = NULL,
+    @ExpectedOrderWonDate DATETIME = NULL,
+    @SampleStatus VARCHAR(20) = 'Active',
+    @CreatedBy VARCHAR(50)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+	Declare @KeyGen varchar(10); 
+	Declare @SampleCode VARCHAR(20);
+
+
+	-- Get current key value
+    SELECT @KeyGen = SampleRequestCode FROM KeyGeneration;
+  
+  -- Generate code like SR0000001
+	SET @SampleCode = (SELECT 'SR' + RIGHT('00000000' + CAST(SampleRequestCode AS VARCHAR), 7)FROM KeyGeneration)
+
+	 
+	 -- Insert into SampleRequestMaster
+    INSERT INTO SampleRequestMaster(
+        SampleCode,
+        CustomerName,
+        RequestDate,
+        ContactPerson,
+        SalesExecutive,
+		SampleRequestType,
+        Priority,
+        Comments,
+        LengthMM,
+        WidthMM,
+        HeightMM,
+		ReelSizeMM,
+		CuttingSizeMM,
+		Ply,
+		SampleDescription,
+		DesignType,
+		RequestQuantity,
+		PaperCombination,
+		ExpectedOrderWonDate,
+		SampleStatus,
+        CreatedBy,
+        CreatedDate,
+		ModifyDate,
+		ModifyBy
+    )
+    VALUES (
+        @SampleCode,
+        @CustomerName,
+        @RequestDate,
+        @ContactPerson,
+        @SalesExecutive,
+        @SampleRequestType,
+        @Priority,
+        @Comments,
+        @LengthMM,
+        @WidthMM,
+        @HeightMM,
+        @ReelSizeMM,
+        @CuttingSizeMM,
+        @Ply,
+        @SampleDescription,
+        @DesignType,
+        @RequestQuantity,
+        @PaperCombination,
+        @ExpectedOrderWonDate,
+        @SampleStatus,
+        @CreatedBy,
+        GETDATE(),
+        NULL,
+        NULL
+    );
+
+
+
+
+	-- Update KeyGeneration
+	UPDATE KeyGeneration
+    SET SampleRequestCode = @KeyGen + 1;
+
+
+
+
+END;
+
+GO
+
+
+
+
+
+
+
+---------------- Follow UP
+
+ 
+
+CREATE PROCEDURE [dbo].[SP_SampleFollowUp_Insert]  
+   
+    @SampleCode VARCHAR(20),
+    @ActivityDate DATETIME,  
+    @ActivityType VARCHAR(100),  
+    @SampleBoardQuantity INT,  
+	@JoinType VARCHAR(50),
+	@SuccessQuantity INT,
+	@RejectionQuantity INT,
+    @StartTime VARCHAR(20),
+	@EndTime VARCHAR(20),
+
+    @Comments VARCHAR(200) = NULL,  
+  
+    @CreatedBy VARCHAR(50) ,
+  
+   --@Message varchar(250) = Null output ,                                                                              
+     @OutActivityCode VARCHAR(50) OUTPUT      
+  
+AS  
+BEGIN  
+    SET NOCOUNT ON;  
+  
+ Declare @KeyGen varchar(10);   
+ Declare @ActivityCode VARCHAR(20);  
+  
+  
+ -- Get current key value  
+    SELECT @KeyGen = ActivityCode FROM KeyGeneration;  
+    
+  -- Generate code like SR0000001  
+ SET @ActivityCode = (SELECT 'AD' + RIGHT('00000000' + CAST(ActivityCode AS VARCHAR), 7)FROM KeyGeneration)  
+  
+  SET @OutActivityCode = @ActivityCode;
+
+ 
+  
+ Update SampleRequestMaster set  SubStatus='Sample Created' where SampleCode=@SampleCode
+  
+  -- Insert into SampleRequestMaster  
+    INSERT INTO Activity(  
+        SampleCode,  
+		ActivityType,
+		ActivityDate,
+		SampleBoardQuantity,
+		JoinType,
+		SuccessQuantity,
+		RejectionQuantity,
+		StartTime,
+		EndTime,
+		Remarks,
+        CreatedBy, 
+        CreatedDate
+  
+    )  
+    VALUES (  
+        @SampleCode,  
+          @ActivityType,
+		  @ActivityDate,
+		  @SampleBoardQuantity,
+		  @JoinType,
+		  @SuccessQuantity,
+		  @RejectionQuantity,
+		  @StartTime,
+		  @EndTime,
+		  @Comments,
+        @CreatedBy,  
+        GETDATE()
+      
+    );  
+  select * from Activity
+  
+  
+  
+ -- Update KeyGeneration  
+ UPDATE KeyGeneration  
+    SET ActivityCode = @KeyGen + 1;  
+  
+  
+  
+  
+END;  
+  
+GO
+
+
+
+
+
+ 
+
+ 
+
+ 

@@ -1,0 +1,62 @@
+﻿#head {
+    height: 60px;
+    background-color: #FFC107;
+}
+.title{
+    height:100px;
+    width:350px;
+    /*background-color:green;*/
+    margin-left:80px;
+}
+.title h1 {
+        color: white;
+        font-family: poppins;
+        text-align: center;
+        position: relative;
+        top: 25px;
+    }
+#main {
+    height: 1050px;
+    /*background-color: #112e51;*/
+    color: white;
+    border: solid #fff 1px;
+    background: radial-gradient(at top left, #FFC107, #FFEB3B);
+}
+.main-form {
+    height: 300px;
+    width: 500px;
+    background-color: white;
+    color: black;
+    position: relative;
+    margin-top: 300px;
+    margin-left: 800px;
+    border-radius: 5px;
+    
+    /*box-shadow: 10px 10px 5px black;*/
+    /*border: solid white 1px;*/
+}
+.log-title {
+    text-align: center;
+    position:relative;
+    top:20px;
+    
+}
+.lab-d {
+    color: black;
+    
+    font-family: poppins;
+}
+.txt-d {
+   
+}
+.log-d{
+    margin-top:50px;
+    text-align:center;
+}
+
+#food {
+    height: 70px;
+    background-color: #FFC107;
+    color: white;
+    border: solid white 1px;
+}

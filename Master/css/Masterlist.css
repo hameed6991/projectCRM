@@ -1,0 +1,133 @@
+﻿body {
+}
+
+.section-box {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.section-title {
+    font-weight: bold;
+    font-size: 1.25rem;
+    margin-bottom: 20px;
+    color: #000000;
+    leading-trim: both;
+    text-edge: cap;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 23.902px; /* 149.39% */
+}
+
+.master-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 15px;
+    align-items: center;
+}
+ 
+.master-name {
+    color: #000000;
+    leading-trim: both;
+    text-edge: cap;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    /*line-height: 23.902px;  */
+}
+
+/*.badge-count {
+    background-color: #ff4d4f;
+    color: #fff;
+    font-size: 0.75rem;
+    border-radius: 12px;
+    padding: 2px 8px;
+    margin-left: 6px;
+}*/
+.Contant-group {
+    display: flex;
+    gap: 30px;
+
+}
+.icon-group {
+    align-items: center;
+    margin-top: 6px;
+}
+.icon-group button {
+    margin-left: 5px;
+}
+/*
+.detail-btn img {
+    content: url("images/DetailMaster.svg")!important;
+    transition: transform 0.2s ease;
+}
+
+.detail-btn:hover img {
+    content: url("images/DetailMasterhover.svg") !important;
+    transform: scale(1.1);
+}
+
+.add-btn img {
+    content: url("images/AddMaster.svg") !important;
+    transition: transform 0.2s ease;
+}
+
+.add-btn:hover img {
+    content: url("images/AddMasterhover.svg") !important;
+    transform: scale(1.1);
+}*/
+
+
+
+/* Set Image */
+.icon {
+    width: 30px;
+    height: 30px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+/* Default background images */
+.detail-btn {
+    background-image: url("images/DetailMaster.svg");
+}
+
+.add-btn {
+    background-image: url("images/AddMaster.svg");
+}
+
+/* Hover background images */
+.detail-btn:hover {
+    background-image: url("images/DetailMasterhover.svg");
+    transform: scale(1.1);
+}
+
+.add-btn:hover {
+    background-image: url("images/AddMasterhover.svg");
+    transform: scale(1.1);
+}
+
+/* Hover on .master-box affects button inside */
+.master-box:hover .detail-btn {
+    background-image: url("images/DetailMasterhover.svg");
+}
+
+.master-box:hover .add-btn {
+    background-image: url("images/AddMasterhover.svg");
+}

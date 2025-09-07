@@ -1,0 +1,6 @@
+create table ServiceRequest 
+(TicketNo varchar(10),Source varchar(10),CallDate datetime,CloseDate datetime,CallType varchar(100),SubCallType varchar(100),
+SesrialNo varchar(10),Product varchar(500),ServiceCode varchar(100),
+NatureOfProblem varchar(1000),Status varchar(10),SubStatus varchar(50),RefNo varchar(50),EngCode1 varchar(50), EngCode2 varchar(50),ScheduleDate datetime,
+TargetResolutionTime varchar(50),TargetResponseTime varchar(50),
+Billable bit,AccCode varchar(10),ContCode varchar(10),MobileNo varchar(10),CreatedDate datetime,CreatedBy varchar(100),ModifiedDate datetime,ModifiedBy Varchar(100))

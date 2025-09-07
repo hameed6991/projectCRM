@@ -1,0 +1,299 @@
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="GaugeChart.ascx.cs" Inherits="apa_pack.UserControl.GaugeChart" %>
+
+
+ 
+<link href="../css/CommonStyles.css" rel="stylesheet" />
+
+<%--<link rel="stylesheet" href="https://cdn3.devexpress.com/jslib/23.1.3/css/dx.light.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn3.devexpress.com/jslib/23.1.3/js/dx.all.js"></script>--%>
+
+
+<%-- --- FOR FONT FAMILY --%>
+
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+
+    <%-- --- --%>
+
+
+<style type="text/css">
+    .plus_icon {
+        background-image: url('images/plus_icon.png');
+        background-repeat: no-repeat;
+        width: 22px;
+        height: 22px;
+    }
+
+    .minus_icon {
+        background-image: url('images/minus_icon.png');
+        background-repeat: no-repeat;
+        width: 22px;
+        height: 22px;
+    }
+    
+     .Chart1-content {
+            height: 90%;
+        }
+
+        .Chart1-body {
+            max-height: 100%;
+            overflow: hidden;
+            height: 100vh;
+        }
+         #chart.pointer-on-bars .dxc-series rect{
+            cursor:pointer;
+        }
+</style>
+
+
+
+
+
+<body>
+ 
+
+    
+
+<!-- jQuery (required) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- DevExtreme Core & Charts -->
+<link rel="stylesheet" href="https://cdn3.devexpress.com/jslib/23.1.6/css/dx.light.css">
+<script src="https://cdn3.devexpress.com/jslib/23.1.6/js/dx.all.js"></script>
+ 
+
+ <form runat="server" >
+
+        <div class="row mx-n2" style="padding: 10px 60px 10px 20px;">
+            <!-- Heading Section -->
+            <div class="col-12 gadget_top_bg">
+                <div class="row align-items-center">
+                    <!-- Title -->
+                    <div class="col-10 col-sm-8 text-left px-0">
+                        <span class="Title">Gauge Chart</span>
+                        
+                    </div>
+
+                   
+                    <!-- Collapse Button -->
+                    <div class="col-auto col-1 text-right pr-1">
+                        
+                       <%-- <span style="border-radius: 4px; background-color: mediumvioletred; flex-shrink: 0;">
+                            <a href=".trchart1" id="A1" data-toggle="collapse" role="button">
+                                <i id="I1" class="minus_icon"></i>
+                            </a>
+                        </span>--%>
+                       
+                    </div>
+
+                      <!-- Filter Button -->
+                    <div class="col-auto col-3 text-right p-1 d-flex justify-content-center align-items-center">
+                        <span style="border-radius: 4px; padding:5px; background: #ACACAC; flex-shrink: 0;">
+                            <a href="#" data-toggle="modal" data-target="#basicModal1" style="text-align: center;">
+                                <img src="Icons/Filter.svg" alt="Filter" title="Filter">
+                            </a>
+                        </span>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <!-- Chart Section -->
+            <div class="col-12 trchart1 collapse show text-center mt-10">
+                <div id="gaugeDesign" style="cursor: pointer;padding: 50px 0px;">
+                    <!-- Chart Content Here -->
+                </div>
+            </div>
+        </div>
+
+
+
+        <table style="width: 100%" border="0" cellspacing="0" cellpadding="0">
+            <tr align="left" valign="middle" class="gadget_top_bg" style="display:none">
+                
+                <td style="width: 60%"><span class="gadget_heading_txt">Gauge Chart</span></td>
+                <td width="10%" align="right" valign="middle">
+                    <div id="chart1parent1" role="tablist" aria-multiselectable="true">
+                        <table border="0" cellspacing="0" cellpadding="0">
+                            <tr align="center" valign="middle">
+                                <td width="20">&nbsp;</td>
+                                <td width="20">&nbsp;</td>
+                                <td width="20"><a href="#" data-toggle="modal" data-target="#basicModal1">
+                                    <img src="Icons/Filter.svg" width="16" height="16" border="0" title="Filter"></a></td>
+                                <td width="20"><a href=".trchart1" id="chart1Abtn" role="button" data-toggle="collapse" data-parent="#chart1parent">
+                                    <%--<img src="images/FilterNew.svg" width="18" height="18" border="0" title="Settings">--%>
+                                    <i style="float: right;" id="chart1Ibtn" class="minus_icon"></i>
+                                </a></td>
+                                <td width="8">&nbsp;</td>
+                            </tr>
+                        </table>
+                </td>
+            </tr>
+            <tr class="trchart1 collapse in" valign="middle">
+                <td colspan="2">
+                    <%--<div id="chart">
+                    </div>--%>
+                </td>
+            </tr>
+        </table>
+
+
+        <div class="modal fade" id="basicModal1" tabindex="-1" role="dialog" aria-labelledby="basicModal1" aria-hidden="true">
+            <div class="modal-dialog  modal-md">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel"></h4>
+                    </div>
+
+
+
+                    <div class="modal-body">
+
+                        <table style="width: 100%;">
+
+
+                            <tr>
+                                <td align="right" valign="middle" class="bodytxt_black" style="height: 20px; width: 50%; text-align: right;">
+                                    <font face="ms sans serif" color='red' size="3"></font>Group By &nbsp;</td>
+                                <td align="left" valign="middle" style="height: 20px; text-align: left; float: left; width: 50px;">
+                                    <asp:DropDownList ID="ddlfilter1" runat="server" CssClass="inputstyle" ClientIDMode="static">
+                                        <asp:ListItem Text="Region" Selected="True" Value="ROName"></asp:ListItem>
+                                        <asp:ListItem Text="Location" Value="LocationName"></asp:ListItem>
+                                        <asp:ListItem Text="Category" Value="Product"></asp:ListItem>
+                                        <asp:ListItem Text="Principal" Value="ps.Prodline"></asp:ListItem>
+                                        <asp:ListItem Text="Industry" Value="industry"></asp:ListItem>
+                                    </asp:DropDownList>
+
+                                </td>
+                            </tr>
+
+
+                        </table>
+
+                    </div>
+
+                    <div class="modal-footer" style="text-align: center;">
+                        <button type="button" class="btn btn-md btn-primary" data-dismiss="modal" onclick="Call1()">Filter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+     
+      
+        <asp:HiddenField ID="hdnUsername1" runat="server" />
+ </form>
+
+
+
+</body>
+
+
+
+<script type="text/javascript">
+
+
+
+
+
+    $(document).ready(function () {
+
+        waitForDxChart();
+    });
+
+
+
+    // dxChart not loading some time so his multiple time
+    function waitForDxChart(callback, retries = 10, delay = 500) {
+        //alert("dxChart loaded!");
+        if ($.fn.dxChart) {
+            //alert("dxChart loaded!");
+            procDrawDoughNutDesign();
+            procDrawBarChart();
+            procDrawLineChart();
+            procDrawPieChart();
+            procDrawScatterChart();
+            procDrawgaugeChart();
+
+        } else if (retries > 0) {
+            //alert("dxChart not ready. Retrying...");
+            setTimeout(() => waitForDxChart(callback, retries - 1, delay), delay);
+        } else {
+            alert("Failed to load dxChart after multiple attempts.");
+        }
+    }
+
+    function procDrawgaugeChart() {
+
+        DevExpress.viz.currentTheme("generic.light");
+
+        var obj = [
+            { PMSchduled: 100, Completed: 60 }
+        ];
+
+        var EndValue = Math.round(obj[0].PMSchduled);
+        var MarkerValue = Math.round(obj[0].Completed);
+
+        if (EndValue == 0) {
+            MarkerValue = 0;
+            $("#chartEmpty").css("display", "block");
+            $("#gaugeDesign").css("display", "none");
+        } else {
+            $("#chartEmpty").css("display", "none");
+            $("#gaugeDesign").css("display", "block");
+        }
+
+        var a = Math.round(EndValue / 5);
+        var b = Math.round(EndValue / 3);
+        var c = Math.round(b + b);
+
+        $(function () {
+            $("#gaugeDesign").dxCircularGauge({
+                scale: {
+                    startValue: 0,
+                    endValue: EndValue,
+                    tickInterval: a,
+                    label: { useRangeColors: true },
+                    orientation: "center"
+                },
+                size: { height: 180 },
+                geometry: { startAngle: 180, endAngle: 0 },
+                rangeContainer: {
+                    palette: "pastel",
+                    orientation: "inside",
+                    ranges: [
+                        { startValue: 0, endValue: b, color: "#FFB900" },
+                        { startValue: b, endValue: c, color: "#006FB6" },
+                        { startValue: c, endValue: EndValue, color: "#3F4D6F" }
+                    ],
+                    width: 75
+                },
+                legend: {
+                    verticalAlignment: "bottom",
+                    horizontalAlignment: "center",
+                    itemTextPosition: 'top'
+                },
+                value: MarkerValue,
+                title: { font: { size: 20 } }
+            });
+
+            $("#pmscheduled").html(EndValue);
+            $("#pmcompleted").html(MarkerValue);
+        });
+    }
+
+
+
+    function addPointerCursor(Container) {
+        Container.addClass("pointer-on-bars");
+    }
+
+    function removePointerCursor(Container) {
+        Container.removeClass("pointer-on-bars");
+    }
+
+
+
+</script>

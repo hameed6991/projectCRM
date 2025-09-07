@@ -1,0 +1,71 @@
+﻿#head {
+    height: 100px;
+    background-color: #112e51;
+    color: white;
+}
+
+.title {
+    height: 100px;
+    width: 350px;
+    /*background-color:green;*/
+    margin-left: 80px;
+}
+
+    .title h1 {
+        color: white;
+        font-family: fantasy;
+        text-align: center;
+        position: relative;
+        top: 25px;
+    }
+
+#main {
+    height: 800px;
+    background-color: #112e51;
+    color: white;
+    border: solid white 1px;
+}
+
+.main-form {
+    height: 600px;
+    width: 400px;
+    background-color: white;
+    color: black;
+    position: relative;
+    margin-top: 100px;
+    margin-left: 400px;
+    border-radius: 5px;
+    /*border: solid white 1px;*/
+}
+.create_new {
+    text-align: center;
+    position: relative;
+    top: 20px;
+}
+.lab-d {
+    color: black;
+    margin-left: 100px;
+    position: relative;
+    top: 30px;
+    padding-bottom: 10px;
+    font-family: cursive;
+}
+
+.txt-d {
+    margin-left: 100px;
+    position: relative;
+    top: 30px;
+    padding-bottom: 10px;
+}
+
+.submit-d {
+    margin-top: 50px;
+    text-align: center;
+}
+
+#food {
+    height: 70px;
+    background-color: #112e51;
+    color: white;
+    border: solid white 1px;
+}

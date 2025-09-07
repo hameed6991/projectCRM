@@ -1,0 +1,575 @@
+﻿/* Disable overall page scroll */
+body, html {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+
+/* Scrollable content area */
+.scrollable-content {
+    position: absolute;
+    top: 128px; /* height of header */
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow-y: auto;
+    padding: 20px;
+    background: #f2f2f2;
+}
+.LOGO {
+    color: #000000;
+    font-family: poppins;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.Title {
+    color: #000000;
+    leading-trim: both;
+    text-edge: cap;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 23.902px; /* 149.39% */
+}
+
+#main_sub2_div {
+    height: 42px;
+    background-color: white;
+    margin-top: 00px;
+    border-radius: 8px;
+}
+
+    #main_sub2_div Title {
+        color: #0b132b;
+        font-family: poppins;
+        text-align: left;
+        margin-top: 10px;
+        letter-spacing: 0px;
+    }
+
+
+
+.BarTitle {
+    color: #000000;
+    leading-trim: both;
+    text-edge: cap;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 23.902px;  
+    padding: 10px 10px 10px 30px;
+    display: inline-flex;
+    gap: 100px;
+    align-items: center;
+    justify-content: start;
+}
+.BarObjactsLeft {
+    color: #000000;
+    leading-trim: both;
+    text-edge: cap;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    padding: 10px 10px 10px 30px;
+    display: inline-flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: start;
+}
+.BarObjactsRight {
+    color: #000000;
+    leading-trim: both;
+    text-edge: cap;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    padding: 10px 20px 10px 30px;
+    display: inline-flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: end;
+}
+.SubTitle {
+    color: #505050; /*2C2C2C*/
+    leading-trim: both;
+    text-edge: cap;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 23.902px; /* 149.39% */
+}
+
+.form-lable {
+    color: #000000;
+    leading-trim: both;
+    text-edge: cap;
+    font-feature-settings: 'salt' on, 'liga' off;
+    font-family: Poppins;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 44px;
+    align-content: center;
+    padding:0px;
+
+}
+.form-text {
+    color: #000000;
+    leading-trim: both;
+    text-edge: cap;
+    font-feature-settings: 'salt' on, 'liga' off;
+    font-family: Poppins;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 44px;
+    align-content: center;
+    outline: none;
+}
+
+    .common-lable {
+        color: #000000;
+        leading-trim: both;
+        text-edge: cap;
+        font-feature-settings: 'salt' on, 'liga' off;
+        font-family: Poppins;
+        font-size: 11px;
+        font-style: normal;
+        font-weight: 500;
+        /*line-height: 44px;*/
+        align-content: center;
+    }
+
+
+.formcontrol_Read {
+    width: 100%;
+    height: 35px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    border: 1px solid #DDD;
+    background: #EDEDED;
+    color: #000000;
+    leading-trim: both;
+    text-edge: cap;
+    font-feature-settings: 'salt' on, 'liga' off;
+    font-family: poppins;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 44px;
+    outline: none;
+}
+
+.formcontrol {
+    width: 100%;
+    height: 35px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    border: 1px solid #DDD;
+    background: #FFF;
+    color: #000000;
+    leading-trim: both;
+    text-edge: cap;
+    font-feature-settings: 'salt' on, 'liga' off;
+    font-family: poppins;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 44px;
+    outline: none;
+}
+.formcontrol_Area {
+    width: 100%;
+    height: 74px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    border: 1px solid #DDD;
+    background: #FFF;
+    color: #000000;
+    leading-trim: both;
+    text-edge: cap;
+    font-feature-settings: 'salt' on, 'liga' off;
+    font-family: poppins;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    /*line-height: 44px;*/
+    outline: none;
+}
+.formcontrol_Area_Read {
+    width: 100%;
+    height: 74px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    border: 1px solid #DDD;
+    background: #EDEDED;
+    color: #000000;
+    leading-trim: both;
+    text-edge: cap;
+    font-feature-settings: 'salt' on, 'liga' off;
+    font-family: poppins;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    /*line-height: 44px;*/
+    outline: none;
+}
+
+.Text_Icon {
+    width: 182px;
+    height: 30px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    border: 1px solid #DDD;
+    background: #FFF;
+    color: #000000;
+    leading-trim: both;
+    text-edge: cap;
+    font-feature-settings: 'salt' on, 'liga' off;
+    font-family: poppins;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 44px;
+}
+
+Icon_Holder {
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    border: 1px solid #DDD;
+    background: #FFF;
+}
+
+.Background_Highlight_Active {
+    width: 90px;
+    height: 28px;
+    flex-shrink: 0;
+    border-radius: 5.895px;
+    background: #FFEEC0;
+    color: #000000;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: poppins;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.Background_Highlight_DeActive {
+    width: 90px;
+    height: 28px;
+    flex-shrink: 0;
+    border-radius: 5.895px;
+    background: #FFEEC0;
+    color: #000000;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: poppins;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.ContainerHeader {
+    color: #878787;
+    leading-trim: both;
+    text-edge: cap;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: poppins;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 23.902px;
+}
+
+.ContainerValue {
+    color: #000000;
+    leading-trim: both;
+    text-edge: cap;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: poppins;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 23.902px;
+}
+
+.CommonButton {
+    width: auto;
+    height: 30px;
+    flex-shrink: 0;
+    border-radius: 5px;
+    background: #FFDB7A;
+    color: #78350f;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: poppins;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    display: flex;
+    gap: 5px;
+    min-width: 75px;
+}
+.CommonButton_Auto1 {
+    width: auto;
+    height: 30px;
+    flex-shrink: 0;
+    border-radius: 5px;
+    background: #FFDB7A;
+    color: #000000;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: poppins;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+}
+.CommonButton_Auto {
+    width: auto;
+    height: 30px;
+    flex-shrink: 0;
+    border-radius: 5px;
+    background: #000000;
+    color: #fff;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: poppins;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    display: flex;
+    gap: 5px;
+    min-width:75px;
+}
+
+.SubmitButton {
+    width: 110px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 6px;
+    border:none;
+    background: #FFB900;
+    color: #000000;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: poppins;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.CancelButton {
+    width: 110px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 6px;
+    border: none;
+    background: #000000;
+    color: #FFF;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: poppins;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+ 
+
+.gridview-container {
+    border-radius: 5px; /* Rounds the entire GridView */
+    overflow: hidden; /* Ensures the border-radius is visible */
+    border: 1px solid #ddd; /* Optional border */
+    margin: 10px;
+    height: auto;
+    min-height: auto;
+}
+
+
+/* Target the header row */
+.gridview-custom thead tr {
+    background-color: #FFDB7A; /* Ensure the color is visible */
+}
+
+/* Round only the first and last header cells */
+.gridview-custom thead th:first-child {
+    border-top-left-radius: 12px;
+}
+
+.gridview-custom thead th:last-child {
+    border-top-right-radius: 12px;
+}
+tbody, td, tfoot, th, thead, tr {
+    border-color: inherit;
+    border-style: solid;
+    border-width: 0;
+    font-family: 'Poppins';
+    font-size: 12px;
+    font-weight: 500;
+    color: #000;
+}
+
+#main_sub2_div {
+    height: 42px;
+    background-color: white;
+    margin-top: 00px;
+    display: inherit;
+    align-items: center;
+    /*padding: 0px;*/
+}
+
+    #main_sub2_div h4 {
+        color: #0b132b;
+        font-family: fantasy;
+        text-align: center;
+        margin-top: -30px;
+        letter-spacing: 0px;
+        
+    }
+
+.GridFirstColumnStyle {
+    color: #0d6efd;
+    text-decoration: underline;
+}
+
+
+/*accordion style start*/
+.accordion-button {
+    background: #fff !important;
+    color: #000000 !important;
+    border-bottom: 1px solid #D2D2D2;
+}
+
+    .accordion-button:focus {
+        z-index: 3;
+        border-color: none;
+        outline: 0;
+        box-shadow: none;
+        background: #FFF;
+        color: #000000;
+        border-bottom: 1px solid #D2D2D2;
+    }
+.accordion-item{
+    border:none;
+
+}
+
+.nav-link {
+    color: #78350f;
+    font-family: 'Poppins';
+    font-size: 12px;
+}
+
+
+/*accordion style end*/
+
+/* Grid Border Radius start*/
+.custom-grid {
+    border-radius: 10px;
+    overflow: hidden; /* Ensures border-radius applies correctly */
+    border: 0px solid #ddd; /* Optional: give it a border */
+    color:#000000!important;
+}
+.accordion-item:last-of-type .accordion-button.collapsed {
+    font-family: Poppins;
+}
+
+.GridColumnStyle {
+    font-size: 11px !important;
+     
+}
+    /*accordion style end*/
+
+
+
+/*--------------- footer Style Start ------------*/
+
+/*.footer {
+    margin-top: auto;*/ /* pushes footer to bottom */
+    /*background: #fff;
+    border-top: 1px solid #ddd;
+    padding: 15px 20px;
+}*/
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    padding: 20px 30px;
+    border-top: 1px solid #ddd;
+   
+    /*box-shadow: 0 -2px 5px rgba(0,0,0,0.1);*/
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Responsive */
+}
+
+.footer-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #666;
+}
+
+.footer-logo {
+    background: #666;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 4px;
+    padding: 3px 8px;
+}
+
+.footer-right a {
+    color: #666;
+    font-size: 18px;
+    margin-left: 15px;
+    transition: color 0.3s;
+}
+
+    .footer-right a:hover {
+        color: #000;
+    }
+
+/* Responsive */
+@media (max-width: 600px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .footer-right a {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+ 
+
+
+/*--------------- footer Style End ------------*/

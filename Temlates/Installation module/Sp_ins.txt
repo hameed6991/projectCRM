@@ -1,0 +1,1277 @@
+
+        
+
+CREATE PROC [dbo].[proc_Installation]                                                                    
+
+  
+
+(                                                 
+
+  @InstallCode as varchar(30),                                      
+
+        
+
+  @ProdCode as Char(10),                                                     
+
+  
+
+  @PSCode as varchar(10),                                                  
+
+        
+
+  @SerialNo as varchar(50),                                                                  
+
+  @SalesOrderNo as varchar(30),                                                                
+
+  
+
+  @SalesOrderDate as datetime,                                                                
+
+        
+
+  @AlliasATMId as varchar(50),                                                                 
+
+        
+
+  @PONo as varchar(50),                                                                
+
+        
+
+  @PODate as datetime,                                                                
+
+        
+
+  @ATMCat as varchar(100),                                                                  
+
+        
+
+  @Invoice as varchar(50),                                                                 
+
+        
+
+  @InvoiceDate as datetime,                                                                
+
+        
+
+  @Latitude as VarChar(50),                                                                 
+
+  
+
+  @Longitude as VarChar(50),                                                          
+
+  @Geolocation as varchar(2),                                                                   
+
+  @Comments as varchar(255),                                                                  
+
+        
+
+  @DistanseFrmBranch as varchar(10),                                                                  
+
+        
+
+  @InstallDate as datetime,                                                                       
+
+        
+
+  
+
+  @WarrStartDate as datetime,                                                                    
+
+        
+
+  @WarrEndDate  as datetime,                                                                  
+
+        
+
+       
+
+  --@WarrantyDays as numeric,                                                     
+
+     
+
+  @AccCode as varchar(10),                                                  
+
+      
+
+  @ContCode as varchar(10),                                                        
+
+        
+
+        
+
+  @engcode as varchar(50),                                                                  
+
+       
+
+  @engcode2 as varchar(50),                                 
+
+        
+
+        
+
+  @SubStatus as varchar(50),                                                  
+
+        
+
+       
+
+  @utype as varchar(30),                                                
+
+        
+
+      
+
+  @ulist as varchar(30),                                                
+
+       
+
+  @CreatedBy Varchar(50),                                                 
+
+        
+
+  @SLAInfo Varchar(8000),                   
+
+       
+
+  @Module Varchar(30),                                
+
+      
+
+  @DispatchRefNo varchar(50) ,                
+
+    @Vifdate as datetime,
+
+	@Vifno varchar(30),
+
+  @InstallAccCode varchar(10) ,                           
+
+ -- @ownershipcode varchar(10) ,  
+
+  @Message varchar(250) = NULL output                                                                   
+
+        
+
+  
+
+)        
+
+        
+
+  
+
+    
+
+AS                                                                    
+
+        
+
+  
+
+        
+
+Begin                                                                         
+
+        
+
+        
+
+SET NOCOUNT ON;             
+
+     
+
+        
+
+declare @glcode varchar(10)        
+
+      
+
+  
+
+ Declare @EquipId as varchar(30)                                                                            
+
+     
+
+        
+
+ Declare @chkGeoLocation as bit      
+
+     
+
+      
+
+ Declare @Status as varchar(50)   
+
+      
+
+ Declare @Ins_Site as varchar(30)                                                                     
+
+      
+
+ Declare @CreatedDate as datetime                                                                         
+
+     
+
+ Declare @reason varchar(250)                                                                   
+
+       
+
+        
+
+ Declare @ROCode as varchar(10)                                 
+
+      
+
+ Declare @LocationCode as varchar(10)                                                        
+
+      
+
+        
+
+ Declare @VendorCode as varchar(10)                                                  
+
+    
+
+ Declare @DistFrmBranch Numeric                                          
+
+       
+
+ Declare @Lat Numeric                                          
+
+       
+
+ Declare @Long Numeric                            
+
+      
+
+ DECLARE @KeyGen varchar(10)                                                   
+
+      
+
+  DECLARE @ActivityCode char(11)            
+
+    
+
+  DECLARE @AccountName varchar(150)            
+
+      
+
+ Set @DistFrmBranch=Null                                          
+
+  
+
+ Set @Lat=Null                                          
+
+  
+
+ Set @Long=Null                          
+
+  
+
+  set @reason = ''                                          
+
+        
+
+--BEGIN TRANSACTION                                                   
+
+  
+
+  set @CreatedDate=dbo.getCountryDate();                                                              
+
+  
+
+ if ISNUMERIC(@DistanseFrmBranch)=1                                              
+
+       
+
+ Set @DistFrmBranch= CAST(@DistanseFrmBranch as numeric)                                            
+
+      
+
+        
+
+ else                                            
+
+        
+
+  
+
+ Set @DistFrmBranch= 0                                            
+
+          
+
+if ISNUMERIC(@Latitude)=1                                              
+
+     
+
+        
+
+ Set @Lat= CAST(@Latitude as float)                                           
+
+     
+
+if ISNUMERIC(@Longitude)=1                                              
+
+        
+
+ Set @Long= CAST(@Longitude as float)                                              
+
+        
+
+if @Geolocation='1'                                                          
+
+        
+
+  Set @chkGeoLocation=1                                       
+
+       
+
+else                                                          
+
+       
+
+  Set @chkGeoLocation=0                                                          
+
+      
+
+--begin                                                                
+
+        
+
+ IF ISDATE(@PODate) = 1                                                                
+
+        
+
+      
+
+    Set  @PODate=@PODate;                                                        
+
+       
+
+ ELSE       
+
+     
+
+Set @PODate=Null;                                                            
+
+     
+
+ IF ISDATE(@InvoiceDate) = 1                                                                
+
+           
+
+        
+
+    Set  @InvoiceDate=@InvoiceDate;                                                               
+
+           
+
+        
+
+ ELSE                                                                
+
+      
+
+        
+
+    Set @InvoiceDate=Null;        
+
+         
+
+        
+
+ IF ISDATE(@SalesOrderDate) = 1                                                                
+
+        
+
+        
+
+    Set  @SalesOrderDate=@SalesOrderDate;                                                       
+
+     
+
+        
+
+ ELSE                                                                
+
+       
+
+    Set @SalesOrderDate=Null;                                          
+
+        
+
+        
+
+        
+
+ IF ISDATE(@InstallDate) = 1                                                                
+
+        
+
+  
+
+    Set  @InstallDate=@InstallDate;  
+
+  
+
+        
+
+ ELSE                                   
+
+  
+
+    Set @InstallDate=Null;                                               
+
+        
+
+
+
+        
+
+--SET @WarrEndDate = CONVERT(varchar, @WarrEndDate, 101) + ' 23:59:59';                                
+
+        
+
+     
+
+        
+
+ --rs("ContCode") =  LContCode                       
+
+      
+
+        
+
+ --rs("site") = SiteCode                                              
+
+        
+
+     
+
+--Purchase                                          
+
+        
+
+       
+
+        
+
+IF @Module='Insert'                                      
+
+       
+
+        
+
+Begin                                      
+
+      
+
+        
+
+  Declare @srkey varchar(3);                           
+
+        
+
+       
+
+  Declare @InstallCode_key Numeric;                                                        
+
+        
+
+       
+
+  Declare @SerialNo_Key Numeric;                                                                     
+
+        
+
+        
+
+  Select @srkey= srkey from dbo.logmast with (nolock) where uname =@CreatedBy;                                                    
+
+        
+
+        
+
+  Select  @InstallCode_key=InstallCode,@SerialNo_Key=SerialNo from dbo.keygeneration;                                      
+
+        
+
+      
+
+  Update dbo.keygeneration Set  InstallCode=@InstallCode_key+1;                                                  
+
+        
+
+      
+
+  if @srkey is Null                                                                           
+
+        
+
+  Begin                                                                                     
+
+        
+
+    Set @InstallCode = 'INS' + '-' + Right(Replicate('0',6) + CONVERT(varchar, @InstallCode_key),6);                                      
+
+        
+
+  End                                       
+
+           
+
+        
+
+  else                                                                           
+
+       
+
+  Begin                                      
+
+       
+
+   Set @InstallCode = @srkey + '-' + Right(Replicate('0',7) + CONVERT(varchar, @InstallCode_key),7);                                       
+
+        
+
+  End                                      
+
+  
+
+        
+
+  if @SerialNo =''                                                               
+
+        
+
+  
+
+        
+
+  Begin             
+
+  
+
+        
+
+  -- select @SerialNo = 'TMP' + Right(Replicate('0',7) + CONVERT(varchar, SerialNo),7) from keygeneration;                                                             
+
+        
+
+  select @SerialNo= pscode + '/' + cast(pnum as varchar)   from PSmast where PSCode =@PSCode
+
+   --select @SerialNo = SerialNo from keygeneration;                 
+
+        
+
+  -- select SerialNo FROM keygeneration                                                        
+
+        
+
+   --Update keygeneration set SerialNo=SerialNo+1  where 1=1;                                                          
+
+        
+
+        
+
+   Set @SerialNo = @SerialNo;                     
+
+        
+
+  
+
+        
+
+   --Set @SerialNo_Key=@SerialNo_Key+1                                                  
+
+        
+
+  
+
+        
+
+  End                            
+
+        
+
+     
+
+        
+
+  if Exists(select 1 from dbo.purchase with (nolock) where serialno=@SerialNo and Prodcode=@Prodcode)                                              
+
+        
+
+        
+
+        
+
+  Begin                                   
+
+    
+
+        
+
+   set @reason = 'Save Process Failed ! Duplicate Serial No. Serial No for this Product Already exists in CRM'                                                              
+
+        
+
+        
+
+   goto exceptionhandler;                                                       
+
+        
+
+        
+
+  End                                                              
+
+        
+
+    Update dbo.keygeneration Set  SerialNo  =SerialNo+1;                      
+
+     Update dbo.PSmast Set  pnum  =pnum+1 where PSCode=@PSCode;   
+
+      
+
+        
+
+   select @ROCode=ROCode,@LocationCode=LocationCode,@VendorCode=vendorcode,@glcode=GLCode from dbo.accmastlookup with (nolock) where Code=@Acccode;               
+
+
+
+  Insert into dbo.Purchase(InstallCode,serialno,EquipId,Latitude,Longitude,GeoLocation,prodcode,PONO,PODate,Invoice,InvoiceDate,SalesOrderNo,SalesOrderDate,InstallDate,WarrStartDate,WarrEndDate,Comments,Status,AlliasATMId,ATMCat,DistanseFrmBranch,EngCode
+
+
+
+,Engcode2,Substatus,Acccode,ContCode,site,Equip_CreatedBy,Equip_CreatedDate,insacccode,DispatchRefNo,VIFDate,VIFNo)                
+
+  
+
+  values(@InstallCode,@SerialNo,@SerialNo,@Lat,@Long,@chkGeoLocation,@ProdCode,@PONO,@PODate,@Invoice,@InvoiceDate,@SalesOrderNo,@SalesOrderDate,@InstallDate,@WarrStartDate,@WarrEndDate,@Comments,'Open',@AlliasATMId,@ATMCat,@DistFrmBranch,@engCode,       
+
+
+  
+
+    
+
+  @engcode2,@SubStatus,@Acccode,@ContCode,@Ins_Site,@CreatedBy,@CreatedDate,@InstallAccCode,@DispatchRefNo,@Vifdate,@Vifno);                                                              
+
+     
+
+	 -----tradeup sid old system lock spinco logic
+
+	    
+
+      if @DispatchRefNo<>''
+
+	  begin
+
+	  update purchase set scrap=1 where SerialNo=@DispatchRefNo
+
+	  end
+
+        
+
+  -- Insert lookup                                                          
+
+        
+
+  Insert into dbo.purchaseLookup(Code,authorcode,authortype,HOCode,ROCode,LocationCode,CSECode,vendorcode,PSCode,GLCode)                                             
+
+         
+
+  Values(@InstallCode,@ulist,@utype,'0000000001',@ROCode,@LocationCode,@engCode,@VendorCode,@PSCode,@glcode)                                                          
+
+         
+
+        
+
+ --end                         
+
+        
+
+        
+
+--SET @ActivityCode = (SELECT SRKey + '-' + RIGHT(REPLICATE('0', 6) + CAST(actnum AS varchar(4)), 6) as [ActNo] FROM LogMast WITH(NOLOCK) WHERE UName = @CreatedBy)                                                                      
+
+SET @ActivityCode = (SELECT SRKey + '-' + RIGHT(REPLICATE('0', 7) + CAST(actnum AS varchar(4)), 7) as [ActNo] FROM LogMast WITH(NOLOCK) WHERE UName = @CreatedBy)  
+
+      
+
+SET @AccountName = (SELECT ACCOUNT FROM AccMast WHERE AccCode=@AccCode)        
+
+      
+
+INSERT INTO Activity(ActivityCode,ActivityType,Description, acccode,ContCode,Status,DueDate,Comments,SRNo, SubStatus,EngCode,EngCode1,FirstActivity,        
+
+        
+
+AddToCale,CreateDate,uname,installcode,refcode,Refname,Activityagainst)                                                                    
+
+       
+
+VALUES (@ActivityCode,'Auto','Auto: New Installation', @Acccode,@contcode,@Status,@CreatedDate,@Comments,'',@substatus,@EngCode,  
+
+@engcode2,@CreatedDate,0,@CreatedDate, @CreatedBy,@installcode,@installcode,@AccountName,'New Installation')                                                                      
+
+        
+
+   
+
+        
+
+UPDATE LogMast SET actnum = actnum+1 FROM LogMast WITH(NOLOCK) WHERE UName = @CreatedBy                                                                      
+
+        
+
+  
+
+--------activity insert End         
+
+  
+
+   insert into userlog values(@CreatedBy,dbo.getcountryDate(),'Installation',@InstallCode,'Installation Creation')                          
+
+    
+
+        
+
+End                                      
+
+         
+
+        
+
+else if @Module='Update'                                      
+
+        
+
+        
+
+        
+
+Begin 
+
+        
+
+        
+
+        
+
+  if Exists(select 1 from dbo.purchase with (nolock) where serialno=@SerialNo and Prodcode=@Prodcode and InstallCode<>@InstallCode)                                                              
+
+        
+
+      
+
+        
+
+  Begin                                                               
+
+        
+
+       
+
+   set @reason = 'Save Process Failed ! Duplicate Serial No. Serial No for this Product Already exists in CRM'                                                              
+
+        
+
+     
+
+   goto exceptionhandler;                                                              
+
+        
+
+  
+
+  End                               
+
+        
+
+      
+
+        
+
+  Update dbo.Purchase set serialno=@SerialNo,EquipId=@SerialNo,Latitude=@Lat,Longitude=@Long,GeoLocation=@chkGeoLocation,prodcode=@ProdCode,PONO=@PONO,PODate=@PODate,Invoice=@Invoice,InvoiceDate=@InvoiceDate,                        
+
+        
+
+  SalesOrderNo=@SalesOrderNo,SalesOrderDate=@SalesOrderDate,InstallDate=@InstallDate,WarrStartDate=@WarrStartDate,WarrEndDate=@WarrEndDate,Comments=@Comments,AlliasATMId=@AlliasATMId,ATMCat=@ATMCat,                        
+
+     
+
+  DistanseFrmBranch=@DistFrmBranch,EngCode=@engCode,Engcode2=@engcode2,SubStatus=@SubStatus,ContCode=@ContCode,insacccode=@InstallAccCode,DispatchRefNo=@DispatchRefNo,VIFDate=@Vifdate,VIFNo=@Vifno  Where 1=1 and InstallCode=@InstallCode;               
+
+                       
+
+        
+
+     -----tradeup sid old system lock spinco logic
+
+	    
+
+      if @DispatchRefNo<>''
+
+	  begin
+
+	  update purchase set scrap=1 where SerialNo=@DispatchRefNo
+
+	  end
+
+        
+
+        
+
+  Update dbo.purchaseLookup set CSECode=@engCode  where Code=@InstallCode;                                      
+
+        
+
+      
+
+        
+
+  Delete from dbo.ATM_SLAMAST where InstallCode=@InstallCode;                           
+
+  
+
+      
+
+        
+
+    insert into userlog values(@CreatedBy,dbo.getcountryDate(),'Installation',@InstallCode,'Edit Installation')                          
+
+        
+
+  
+
+  --print 'del';                                    
+
+   
+
+End                                                     
+
+        
+
+        
+
+   
+
+        
+
+-- SLA  iNFO start                                               
+
+  
+
+        
+
+ DECLARE @Values as NVarchar(800);                           
+
+  
+
+ Set @Values=''                                              
+
+          
+
+        
+
+ BEGIN                                  
+
+   
+
+  DECLARE @Input NVARCHAR(800)                                               
+
+        
+
+  DECLARE @Character CHAR(1)                                              
+
+        
+
+  DECLARE @OP NVARCHAR(MAX)                                              
+
+   
+
+  Set @Input=@SLAInfo                                              
+
+  
+
+  Set @Character='~'                                              
+
+        
+
+  DECLARE @StartIndex INT, @EndIndex INT                                       
+
+     
+
+        
+
+  SET @StartIndex = 1                                              
+
+        
+
+       
+
+        
+
+  IF SUBSTRING(@Input, LEN(@Input) - 1, LEN(@Input)) <> @Character                                              
+
+        
+
+       
+
+  BEGIN                                               
+
+        
+
+      
+
+            SET @Input = @Input + @Character                 
+
+      
+
+  END                                               
+
+        
+
+      
+
+  WHILE CHARINDEX(@Character, @Input) > 0                                              
+
+        
+
+       
+
+        
+
+  BEGIN                                             
+
+        
+
+       
+
+            SET @EndIndex = CHARINDEX(@Character, @Input)                                              
+
+        
+
+        
+
+            SELECT  @OP = SUBSTRING(@Input, @StartIndex, @EndIndex - 1)                                               
+
+        
+
+        
+
+  /*Start |*/               
+
+        
+
+       
+
+      BEGIN                                              
+
+       
+
+        
+
+    DECLARE @Input2 NVARCHAR(800)   
+
+        
+
+    DECLARE @Character2 CHAR(1)                                              
+
+     
+
+    DECLARE @OP2 NVARCHAR(800)                                              
+
+        
+
+     Set @Input2=@OP                                              
+
+        
+
+    Set @Character2='|'                                              
+
+  
+
+    DECLARE @StartIndex2 INT, @EndIndex2 INT                                              
+
+   
+
+    SET @StartIndex2 = 1                                              
+
+   
+
+        
+
+    IF SUBSTRING(@Input2, LEN(@Input2) - 1, LEN(@Input2)) <> @Character2                                              
+
+  
+
+        
+
+    BEGIN          
+
+   
+
+     SET @Input2 = @Input2 + @Character2                                              
+
+        
+
+    END                                            
+
+  
+
+    WHILE CHARINDEX(@Character2, @Input2) > 0   
+
+        
+
+  
+
+    BEGIN                                  
+
+  
+
+        
+
+     SET @EndIndex2 = CHARINDEX(@Character2, @Input2)                                                               
+
+        
+
+   
+
+     SELECT  @OP2 = SUBSTRING(@Input2, @StartIndex2, @EndIndex2 - 1)                                                               
+
+        
+
+        
+
+     if @Values<>''                                              
+
+        
+
+        
+
+      Set @Values += ''',''' +@OP2                                                 
+
+        
+
+        
+
+     else                                          
+
+        
+
+        
+
+      Set @Values +=  @OP2                                         
+
+        
+
+        
+
+     SET @Input2 = SUBSTRING(@Input2, @EndIndex2 + 1, LEN(@Input2))                                              
+
+        
+
+        
+
+    END                
+
+        
+
+        
+
+        
+
+    Declare @Columns varchar(100);                               
+
+        
+
+  
+
+        
+
+    Set @Columns='ServiceCode,RespTime,Resoltime,VendorCode,ATMId,ProdCode,InstallCode';                                               
+
+        
+
+  
+
+        
+
+    --Set @Columns='f1,f2,f3,f4';                                              
+
+        
+
+        
+
+        
+
+    DECLARE @strQuery nVarchar(800)                             
+
+  
+
+        
+
+    if @Values<>''                                              
+
+        
+
+     Set @Values += ''',''' + @SerialNo + ''',''' + @ProdCode + ''','''+ @InstallCode;                                              
+
+       
+
+  
+
+    SET @strQuery='insert into dbo.ATM_SLAMAST('+@Columns+') values('''+@Values+''')'                                              
+
+        
+
+    
+
+        
+
+    if @Values<>''                                              
+
+  
+
+     EXECUTE sp_executesql @strQuery                      
+
+        
+
+    Set @Values=''                                               
+
+        
+
+  
+
+   END                                               
+
+        
+
+      
+
+        
+
+   /*End*/                         
+
+  
+
+            SET @Input = SUBSTRING(@Input, @EndIndex + 1, LEN(@Input))                                                                     
+
+  
+
+  END                                               
+
+        
+
+  
+
+ END                                              
+
+        
+
+  
+
+        
+
+        
+
+ -- SLA  iNFO end                                              
+
+        
+
+        
+
+ -- Reset SET NOCOUNT to OFF                                                                    
+
+        
+
+  
+
+ --SET NOCOUNT OFF;                                                                    
+
+        
+
+  
+
+        
+
+ if @reason = ''                                                           
+
+        
+
+  
+
+        
+
+ begin                                                           
+
+        
+
+  
+
+  set @reason = 'Successful | ' + @InstallCode                                              
+
+        
+
+  
+
+  goto exceptionhandler                                                                    
+
+        
+
+        
+
+ end                                                                    
+
+        
+
+  
+
+        
+
+ exceptionhandler:                                                                    
+
+        
+
+       
+
+        
+
+ set @Message = @reason                                                                        
+
+      
+
+        
+
+ --insert into API_Exceptions (SRNo,Status_Code,Call_Date,Status,Exception,Exception_Date,Data_Flow_Type,ATMID,ATM_Down) values(@srno,@Complaint_Code,@Comp_Date,'Open',@Message,getdate(),'Call Creation',@ATMID,@ApiDownCode)                               
+
+
+
+   
+
+   
+
+    
+
+ select @Message      
+
+        
+
+        
+
+        
+
+  Print 'Successfully Created : '+ @InstallCode        
+
+        
+
+ 
+
+        
+
+End 
+
+GO
+
+

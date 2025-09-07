@@ -1,0 +1,172 @@
+﻿body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color:red;
+}
+
+
+#head_left_div {
+    height: 64px;
+    background-color: #1e2f97;
+    color: white;
+}
+#head_right_div {
+    height: 64px;
+    background-color: #1e2f97;
+    color: white;
+}
+#nav_div {
+    height: 64px;
+    background-color: #1e2f97;
+    color: white;
+    width: auto;
+}
+
+#nav_ul {
+    height: 64px;
+    width: 800px;
+    margin-left: -12px;
+    background-color: #1e2f97;
+    color: white;
+    font-size: small;
+    /*padding-right: 0px;*/
+}
+.nav_li {
+   /* border-right: solid 1px white;
+    border-bottom: solid 1px white;*/
+    display: inline-flex;
+    padding: 20px;
+     
+    
+}
+.nav_li a {
+    height:3px;
+    color: white;
+    text-decoration: none;
+    /*background-color:deeppink;
+    top:-10px;
+     */
+}
+/*.nav_li a:hover {
+    color: deeppink;
+    text-decoration:underline;
+}
+*/
+
+.title {
+    height: 64px;
+    width: 350px;
+    /*background-color:green;*/
+    margin-left: 80px;
+}
+.logout_d {
+    background-color: none;
+    height: 64px;
+    width: 150px;
+    position: relative;
+    margin-left: 1700px;
+    margin-top: -80px;
+}
+#but_Logout {
+    margin-top: 30px;
+    margin-left: 30px;
+    background-color: white;
+    color: #1e2f97;
+    border: none;
+}
+.title h1 {
+    color: white;
+    font-family: fantasy;
+    text-align: center;
+    position: relative;
+    top: 10px;
+}
+
+#main {
+    height: 829px;
+    background-color: none;
+    color: white;
+    border: solid white 1px;
+}
+
+.main-form {
+    height: 300px;
+    width: 500px;
+    background-color: white;
+    color: black;
+    position: relative;
+    margin-top: 200px;
+    margin-left: 400px;
+    border-radius: 5px;
+    /*border: solid white 1px;*/
+}
+
+.log-title {
+    text-align: center;
+    position: relative;
+    top: 20px;
+}
+
+.lab-d {
+    color: white;
+    margin-left: 100px;
+    position: relative;
+    top: 30px;
+    font-family: cursive;
+    display: inline-grid;
+}
+
+.txt-d {
+    margin-left: 100px;
+    position: relative;
+    top: 30px;
+    text-decoration:none;
+    border-block:none;
+}
+
+.log-d {
+    margin-top: 50px;
+    text-align: center;
+}
+.addstudent h3 {
+    text-align:center;
+    margin-top:50px;
+    font-size: 1.75rem;
+    font-family: cursive;
+    
+}
+.addtextfield {
+    background-color: none;
+    text-align: center;
+    text-align: left;
+    margin-left: 300px;
+    height:100px;
+    width:1300px;
+}
+#butadd {
+    background-color: none;
+    height:40px;
+    width:100px;
+    margin-left:70px;
+    margin-top:46px;
+    color:white;
+    position:absolute;
+
+}
+#butsave {
+    background-color: none;
+    height: 40px;
+    width: 100px;
+    margin-left: 70px;
+    margin-top: 46px;
+    color: white;
+    position: absolute;
+}
+#GridView1 {
+}
+
+#food {
+    height: 70px;
+    background-color: #1e2f97;
+    color: white;
+    border: solid white 1px;
+}

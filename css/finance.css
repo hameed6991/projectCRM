@@ -1,0 +1,142 @@
+﻿#head {
+    height: 100px;
+    background-color: #1e2f97;
+    color: white;
+}
+
+#nav_div {
+    height: 100px;
+    background-color: #1e2f97;
+    color: white;
+}
+
+#nav_ul {
+    height: 100px;
+    width: 720px;
+    margin-left: -12px;
+    background-color: #1e2f97;
+    color: white;
+    padding-right: 110px;
+}
+
+.nav_li {
+    border-right: solid 1px white;
+    border-bottom: solid 1px white;
+    display: inline-flex;
+    padding: 38px;
+
+}
+
+.nav_li a {
+        color: white;
+        text-decoration: none;
+    }
+
+.title {
+    height: 100px;
+    width: 350px;
+    /*background-color:green;*/
+    margin-left: 80px;
+}
+
+.logout_d {
+   
+    height: 100px;
+    width: 191px;
+    position: relative;
+    margin-left: 1700px;
+    margin-top: -100px;
+}
+
+#but_Logout {
+    margin-top: 30px;
+    margin-left: 10px;
+    background-color: #1e2f97;
+    color: white;
+    border: none;
+}
+
+.title h1 {
+    color: white;
+    font-family: poppins;
+    text-align: center;
+    position: relative;
+    top: 25px;
+}
+
+#main {
+    height: 800px;
+    background-color: white;
+    color: white;
+    border: solid white 1px;
+}
+#main_sub1_div {
+    height: 100px;
+    background-color:white;
+    
+}
+
+#main_sub2_div {
+    height: 60px;
+    background-color: white;
+    margin-top: 00px;
+    
+}
+    #main_sub2_div h3 {
+        color: #0b132b;
+        font-family: poppins;
+        text-align: center;
+        margin-top: 10px;
+    }
+#main_sub3_left_div {
+    height: 500px;
+    background-color:;
+    margin-left: 0px;
+}
+    #main_sub3_left_div h3 {
+        color: #0b132b;
+        font-family: poppins;
+        text-align: center;
+        margin-top: 20px;
+        font-weight: bold
+    }
+#main_sub4_right_div h3 {
+    color: #0b132b;
+    font-family: poppins;
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+
+
+/*.tex-d {
+    color: #0b132b;
+    margin-top:20px;
+    margin-left:400px;
+    
+}*/
+.incometable {
+    height: 200px;
+    width: 500px;
+    margin-left: 300px;
+    margin-top: 30px;
+    color: #0b132b;
+}
+
+
+#main_sub4_right_div {
+    height: 500px;
+    background-color:;
+    margin-top: 00px;
+    
+    margin-right: 0px;
+}
+ 
+#food {
+    height: 80px;
+    
+    color: #0b132b;
+    border-top: solid 1px black;
+    
+}

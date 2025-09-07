@@ -1,0 +1,170 @@
+ 
+
+CREATE TABLE [dbo].[Purchase](
+	[SerialNo] [varchar](50) NULL,
+	[ProdCode] [char](10) NULL,
+	[AccCode] [varchar](10) NULL,
+	[Invoice] [varchar](100) NULL,
+	[InvoiceDate] [datetime] NULL,
+	[InstallDate] [datetime] NULL,
+	[WarrantyType] [varchar](50) NULL,
+	[WarrStartDate] [datetime] NULL,
+	[WarrEndDate] [datetime] NULL,
+	[Subsite] [varchar](30) NULL,
+	[insacccode] [varchar](10) NULL,
+	[site] [varchar](30) NULL,
+	[revision] [numeric](18, 0) NULL,
+	[VersionNo] [varchar](255) NULL,
+	[EquipId] [varchar](50) NULL,
+	[DeliveryDate] [datetime] NULL,
+	[WarrantyDays] [numeric](18, 0) NULL,
+	[ContractId] [varchar](20) NULL,
+	[ContractAmt] [money] NULL,
+	[ContractType] [varchar](50) NULL,
+	[RenewalDate] [datetime] NULL,
+	[Comments] [varchar](255) NULL,
+	[Status] [varchar](50) NULL,
+	[brandname] [varchar](50) NULL,
+	[Euip_Distance] [varchar](30) NULL,
+	[AlliasATMId] [varchar](50) NULL,
+	[ATMCat] [varchar](20) NULL,
+	[Equip_CreatedBy] [varchar](50) NULL,
+	[Equip_CreatedDate] [datetime] NULL,
+	[atmclassification] [varchar](50) NULL,
+	[Denom100] [bit] NULL,
+	[Denom500] [bit] NULL,
+	[Denom1000] [bit] NULL,
+	[ID] [numeric](15, 0) IDENTITY(1,1) NOT NULL,
+	[Denom50] [bit] NULL,
+	[HandOverDate] [datetime] NULL,
+	[TakeOverDate] [datetime] NULL,
+	[DistanseFrmBranch] [numeric](20, 0) NULL,
+	[engcode] [varchar](50) NULL,
+	[engcode2] [varchar](50) NULL,
+	[SpecificEodDays] [varchar](50) NULL,
+	[CashLoadingMethod] [varchar](100) NULL,
+	[DailyEOD] [varchar](100) NULL,
+	[InstallCode] [varchar](30) NULL,
+	[Latitude] [float] NULL,
+	[Longitude] [float] NULL,
+	[GeoLocation] [bit] NULL,
+	[CustOrdRef] [varchar](30) NULL,
+	[CustOrdDate] [datetime] NULL,
+	[CustOrdValue] [numeric](18, 0) NULL,
+	[CustOrdDesc] [varchar](250) NULL,
+	[PrinShipInvNo] [varchar](30) NULL,
+	[PrinShipInvDate] [datetime] NULL,
+	[AirBillNoDate] [datetime] NULL,
+	[ModeofPayment] [varchar](100) NULL,
+	[contcode] [varchar](10) NULL,
+	[RatingFlg] [bit] NULL,
+	[PONo] [varchar](100) NULL,
+	[PODate] [datetime] NULL,
+	[SalesOrderNo] [varchar](30) NULL,
+	[SalesOrderDate] [datetime] NULL,
+	[SubStatus] [varchar](50) NULL,
+	[NextActivity] [datetime] NULL,
+	[teamcode] [varchar](10) NULL,
+	[pscode] [varchar](10) NULL,
+	[PIINo] [varchar](50) NULL,
+	[PIIDate] [datetime] NULL,
+	[VIFDate] [datetime] NULL,
+	[VIFNo] [varchar](30) NULL,
+	[PymtDetail] [varchar](50) NULL,
+	[Application] [varchar](500) NULL,
+	[Warperiod] [numeric](18, 0) NULL,
+	[Promotion] [varchar](50) NULL,
+	[InstallCallDate] [datetime] NULL,
+	[spnavlble] [bit] NULL,
+	[AMCStartdate] [datetime] NULL,
+	[AMCEnddate] [datetime] NULL,
+	[AMC_Type] [varchar](50) NULL,
+	[WAR_Type] [varchar](50) NULL,
+	[scrap] [bit] NULL,
+	[DispatchRefNo] [varchar](50) NULL,
+	[PreviousAmcEndDate] [datetime] NULL,
+	[Newagno] [varchar](10) NULL,
+	[PreviousAgno] [varchar](10) NULL,
+	[ownershipengcode] [varchar](10) NULL,
+	[PCODE] [varchar](6) NULL,
+ CONSTRAINT [pk_Purchase] PRIMARY KEY NONCLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 70) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+
+
+
+
+---------------------------------------------------------------------------------------
+
+
+
+
+CREATE TABLE [dbo].[PurchaseDetail](
+	[purchasedetcode] [numeric](18, 0) IDENTITY(1,1) NOT NULL,
+	[EquipID] [varchar](30) NULL,
+	[CompCode] [varchar](10) NULL,
+	[CompDesc] [varchar](100) NULL,
+	[WarStDate] [datetime] NULL,
+	[WarEndDate] [datetime] NULL,
+	[SerialNo] [varchar](20) NULL,
+	[Model] [varchar](50) NULL,
+	[ContactPersonName] [varchar](50) NULL,
+	[ContactNo] [varchar](50) NULL,
+	[ResponseTime] [int] NULL,
+	[ResolutionTime] [int] NULL,
+	[QutAmt] [numeric](18, 0) NULL,
+	[AppAmt] [numeric](18, 0) NULL,
+	[Vendor] [varchar](10) NULL,
+	[ServiceCode] [varchar](10) NULL,
+	[InstallCode] [varchar](10) NULL,
+	[ProdCode] [char](10) NULL,
+ CONSTRAINT [pk_PurchaseDetail] PRIMARY KEY CLUSTERED 
+(
+	[purchasedetcode] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 80) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+
+
+---------------------------------------------------------------------
+
+
+CREATE TABLE [dbo].[PurchaseLookup](
+	[Code] [varchar](30) NOT NULL,
+	[authorcode] [varchar](30) NULL,
+	[authortype] [varchar](30) NULL,
+	[HOCode] [varchar](10) NULL,
+	[ROCode] [varchar](10) NULL,
+	[LocationCode] [varchar](10) NULL,
+	[CSECode] [varchar](10) NULL,
+	[vendorcode] [varchar](10) NULL,
+	[PSCode] [varchar](10) NULL,
+	[GLCode] [varchar](10) NULL,
+	[branchcode] [varchar](25) NULL,
+ CONSTRAINT [pk_PurchaseLookup] PRIMARY KEY NONCLUSTERED 
+(
+	[Code] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 70) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+
+
+

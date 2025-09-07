@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SystemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CATRAGE">
+    <Key>
+      <PropertyRef Name="CATRAGE_ID" />
+    </Key>
+    <Property Name="CATRAGE_ID" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="USER_NAME" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="CFD_1" Type="DateTime" Precision="0" />
+    <Property Name="ED_1" Type="DateTime" Precision="0" />
+    <Property Name="CFD_2" Type="DateTime" Precision="0" />
+    <Property Name="ED_2" Type="DateTime" Precision="0" />
+    <Property Name="CFD_3" Type="DateTime" Precision="0" />
+    <Property Name="ED_3" Type="DateTime" Precision="0" />
+    <Property Name="PRINTERS_ID" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="Printer" Relationship="Self.FK__CATRAGE__PRINTER__6383C8BA" FromRole="CATRAGE" ToRole="Printers" />
+  </EntityType>
+  <EntityType Name="COMPUTER">
+    <Key>
+      <PropertyRef Name="COM_ID" />
+    </Key>
+    <Property Name="COM_ID" Type="Int32" Nullable="false" />
+    <Property Name="COMPUTER_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PROCESSOR" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="SYSTEM_TYPE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="RAM" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="SYSTEM_MANUFACTURE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="SYSTEM_MODEL" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="GRAFIC_CARD" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="OPRATING_SYSTEM" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="LOCATIONS" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="USER_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PASSWORD" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="MONITOR" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="UPS" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="KEYBOARD_MOUSE" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="MICRO_USB_ADAPTER" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Printer">
+    <Key>
+      <PropertyRef Name="Printer_ID" />
+    </Key>
+    <Property Name="Printer_ID" Type="Int16" Nullable="false" />
+    <Property Name="Printer_Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Printer_Type" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="User_Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Location" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CATRAGEs" Relationship="Self.FK__CATRAGE__PRINTER__6383C8BA" FromRole="Printers" ToRole="CATRAGE" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK__CATRAGE__PRINTER__6383C8BA">
+    <End Role="Printers" Type="Self.Printer" Multiplicity="1" />
+    <End Role="CATRAGE" Type="Self.CATRAGE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Printers">
+        <PropertyRef Name="Printer_ID" />
+      </Principal>
+      <Dependent Role="CATRAGE">
+        <PropertyRef Name="PRINTERS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SystemEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CATRAGEs" EntityType="Self.CATRAGE" />
+    <EntitySet Name="COMPUTERS" EntityType="Self.COMPUTER" />
+    <EntitySet Name="Printers" EntityType="Self.Printer" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <AssociationSet Name="FK__CATRAGE__PRINTER__6383C8BA" Association="Self.FK__CATRAGE__PRINTER__6383C8BA">
+      <End Role="Printers" EntitySet="Printers" />
+      <End Role="CATRAGE" EntitySet="CATRAGEs" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

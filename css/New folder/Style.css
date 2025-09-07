@@ -1,0 +1,66 @@
+﻿#head {
+    height: 100px;
+    background-color: #1e2f97;
+}
+.title{
+    height:100px;
+    width:350px;
+    /*background-color:green;*/
+    margin-left:80px;
+}
+.title h1 {
+        color: white;
+        font-family: fantasy;
+        text-align: center;
+        position: relative;
+        top: 25px;
+    }
+#main {
+    height: 800px;
+    /*background-color: #112e51;*/
+    color: white;
+    border: solid #79787a 1px;
+    background: radial-gradient(at top left, #1e2f97, #1e2f97);
+}
+.main-form {
+    height: 300px;
+    width: 500px;
+    background-color: white;
+    color: black;
+    position: relative;
+    margin-top: 200px;
+    margin-left: 400px;
+    border-radius: 5px;
+    
+    /*box-shadow: 10px 10px 5px black;*/
+    /*border: solid white 1px;*/
+}
+.log-title {
+    text-align: center;
+    position:relative;
+    top:20px;
+    
+}
+.lab-d {
+    color: black;
+    margin-left: 100px;
+    position: relative;
+    top: 30px;
+    font-family: cursive;
+}
+.txt-d {
+    margin-left: 100px;
+    position: relative;
+    top: 30px;
+}
+.log-d{
+    margin-top:50px;
+    text-align:center;
+}
+
+#food {
+    height: 70px;
+    background-color: #1e2f97;
+    color: white;
+    border: solid white 1px;
+}
