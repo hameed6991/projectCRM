@@ -20,23 +20,32 @@ namespace apa_pack
 
         protected void Login_submit_Click(object sender, EventArgs e)
         {
-            string pass_match = "SELECT COUNT(*) FROM Logmast WHERE student_name='"+ txtun.Text + "' AND password='"+ txtpass.Text + "'";
-            SqlDataAdapter da = new SqlDataAdapter(pass_match, con);
-            DataTable dt = new DataTable(); 
-            da.Fill(dt);
-            if (dt.Rows[0][0].ToString() == "1") 
-            {
-                Session["s_student_name"] = txtun.Text;
-                Response.Redirect("home.aspx");   
-            }
-            else
-            {
-                error.Text = "Invalid Login please check username and password";
-                txtpass.Focus();
-                //Response.Write("<script language='javascript'>alert('Invalid Login please check username and password');</script>");
-            }
+            string cs = System.Configuration.ConfigurationManager.ConnectionStrings["StudentDb"].ConnectionString;
 
+            using (SqlConnection con = new SqlConnection(cs))
+            using (SqlCommand cmd = new SqlCommand(
+                "SELECT COUNT(*) FROM dbo.Logmast WHERE student_name = @u AND [password] = @p", con))
+            {
+                cmd.Parameters.AddWithValue("@u", txtun.Text.Trim());
+                cmd.Parameters.AddWithValue("@p", txtpass.Text); // later: store hashes instead
+
+                con.Open();
+                int matches = (int)cmd.ExecuteScalar();
+
+                if (matches == 1)
+                {
+                    Session["s_student_name"] = txtun.Text.Trim();
+                    Response.Redirect("home.aspx", false);
+                    Context.ApplicationInstance.CompleteRequest();
+                }
+                else
+                {
+                    error.Text = "Invalid Login. Please check username and password.";
+                    txtpass.Focus();
+                }
+            }
         }
-    
+
+
     }
 }

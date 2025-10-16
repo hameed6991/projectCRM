@@ -14,7 +14,8 @@ namespace apa_pack
     {
 
 
-        SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-1G3J74F\SQLEXPRESS;Initial Catalog=studentmanagemant;Integrated Security=True");
+        SqlConnection con = new SqlConnection(@"Data Source=HAMEED\SQLEXPRESS; Initial Catalog=studentmanagemant;   User ID=sa;Password=shahul1234;   Encrypt=True;TrustServerCertificate=True;
+      MultipleActiveResultSets=True");
 
         protected void Page_Load(object sender, EventArgs e)
         {
