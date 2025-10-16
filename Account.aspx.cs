@@ -11,7 +11,7 @@ namespace apa_pack
     {
         // Read the connection string named "StudentDb" from web.config
         private readonly string _cs = ConfigurationManager
-            .ConnectionStrings["StudentDb"].ConnectionString;
+            .ConnectionStrings["connect"].ConnectionString;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -41,20 +41,7 @@ namespace apa_pack
         {
             using (var con = new SqlConnection(_cs))
             using (var cmd = new SqlCommand(@"
-                SELECT
-                    AccCode,
-                    Account,
-                    AccType,
-                    CustomerType,
-                    Industry,
-                    Synonyms,
-                    Address,
-                    site,
-                    siteID,
-                    City,
-                    Contact_Number
-                FROM dbo.AccMast
-                ORDER BY Account ASC;", con))
+                SELECT AccCode, Account,  AccType,  CustomerType,  Industry,    Synonyms,   Address,  site,   siteID,    City,    Contact_Number  FROM dbo.AccMast  ORDER BY Account ASC;", con))
             using (var da = new SqlDataAdapter(cmd))
             {
                 var dt = new DataTable();

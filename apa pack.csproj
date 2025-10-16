@@ -1167,6 +1167,7 @@
     <Content Include="SampleDesign\Samples.aspx" />
     <Content Include="SampleDesign\SampleSummary.aspx" />
     <Content Include="ServiceRequest.aspx" />
+    <Content Include="ServiceRequestSummary.aspx" />
     <Content Include="Successfully.aspx" />
     <Content Include="Test.aspx" />
     <Content Include="UserControl\BarChart.ascx" />
@@ -1401,6 +1402,13 @@
     </Compile>
     <Compile Include="ServiceRequest.aspx.designer.cs">
       <DependentUpon>ServiceRequest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceRequestSummary.aspx.cs">
+      <DependentUpon>ServiceRequestSummary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ServiceRequestSummary.aspx.designer.cs">
+      <DependentUpon>ServiceRequestSummary.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>

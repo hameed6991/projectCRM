@@ -20,7 +20,7 @@ namespace apa_pack
 
         protected void Login_submit_Click(object sender, EventArgs e)
         {
-            string cs = System.Configuration.ConfigurationManager.ConnectionStrings["StudentDb"].ConnectionString;
+            string cs = System.Configuration.ConfigurationManager.ConnectionStrings["Connect"].ConnectionString;
 
             using (SqlConnection con = new SqlConnection(cs))
             using (SqlCommand cmd = new SqlCommand(

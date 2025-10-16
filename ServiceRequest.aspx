@@ -92,7 +92,7 @@
             //alert(InsCode)
              
  
-        var URL = "../InstallSummary.aspx?InstallCode=" + InsCode + "&From=Installation";
+        var URL = "../ServiceRequestSummary.aspx?Sr=" + InsCode + "&From=Installation";
 
         $('#objInstallSummaryModal').attr("src", URL);
         $('#InstallSummaryModal').modal('show');
@@ -106,7 +106,7 @@
 
         if (From == "Followup") {
 
-            var URL = "../InstallFollowUp.aspx?InstallCode=" + InsCode + "&From=" + From;
+            var URL = "../ServiceRequestSummary.aspx?sr=" + InsCode + "&From=" + From;
 
             $('#objInstallFollowUp').attr("src", URL);
             $('#InstallFollowUp').modal('show');
@@ -204,72 +204,57 @@
                             <asp:UpdatePanel ID="updatePanel1" runat="server">
                                 <ContentTemplate>
                                     <%--CssClass="table table-striped table-bordered table-hover" --%>
-                                    <asp:GridView ID="GridviewInstallSummary" Style="width: 100%;" CssClass="table table-hover" AutoGenerateColumns="false" ClientIDMode="Static"
-                                        EmptyDataText="There are no data records to display." HeaderStyle-BackColor="#FFDB7A" RowStyle-CssClass="rowHover" HeaderStyle-BorderColor="White" RowStyle-HorizontalAlign="left" RowStyle-BackColor="#ffffff"
-                                        AllowPaging="true" PageSize="20" OnPageIndexChanging="Gridincomeviewdetails_PageIndexChanging"
-                                        RowStyle-Height="00" RowStyle-BorderWidth="0" runat="server" OnInit="GridviewAccountSummary_Init" OnRowDataBound="GridviewAccountSummary_RowDataBound">
+                            <asp:GridView ID="GridviewInstallSummary" runat="server"
+    Style="width:100%" CssClass="table table-hover"
+    AutoGenerateColumns="false" AllowPaging="true" PageSize="20"
+    OnPageIndexChanging="Gridincomeviewdetails_PageIndexChanging">
 
-                                        <%--RowStyle-BorderColor="#eceeef"  
-                                    BorderColor="#1e2f97"--%>
+    <Columns>
 
-                                        <Columns>
+        <asp:TemplateField HeaderText="Actions" HeaderStyle-Width="50" ItemStyle-HorizontalAlign="Center">
+            <ItemTemplate>
+                <a href="#" onclick='<%# "javascript:CallInsFollowUp(\"" + Eval("DocketNo") +  "\",\"" + "Followup" + "\");return false;" %>'>
+                    <img src="../images/FollowUp.svg" width="18" height="18" />
+                </a>
+            </ItemTemplate>
+        </asp:TemplateField>
 
-                                            <asp:TemplateField HeaderStyle-Width="50" HeaderStyle-VerticalAlign="Middle" ItemStyle-HorizontalAlign="Center" HeaderText="Actions">
-                                                <HeaderStyle />
-                                                <ItemTemplate>
-                                                    <a href="#" onclick='<%# "javascript:CallInsFollowUp(\"" +  Eval("InstallCode")  +  "\",\"" + "Followup" + "\");return false; " %>'>
-                                                        <img src="../images/FollowUp.svg" width="18" height="18" /></a>
-                                                </ItemTemplate>
-                                            </asp:TemplateField>
+        <asp:TemplateField HeaderText=" " HeaderStyle-Width="50" ItemStyle-HorizontalAlign="Center">
+            <ItemTemplate>
+                <a href="#" onclick='<%# "javascript:CallInsFollowUp(\"" + Eval("DocketNo") +  "\",\"" + "Closure" + "\");return false;" %>'>
+                    <img src="../images/Closure.svg" width="20" height="20" />
+                </a>
+            </ItemTemplate>
+        </asp:TemplateField>
 
-                                            <asp:TemplateField HeaderStyle-Width="50" HeaderStyle-VerticalAlign="Middle" ItemStyle-HorizontalAlign="Center" HeaderText=" ">
-                                                <HeaderStyle />
-                                                <ItemTemplate>
-                                                    <a href="#" onclick='<%# "javascript:CallInsFollowUp(\"" +  Eval("InstallCode")  +  "\",\"" + "Closure" + "\");return false; " %>'>
-                                                        <img src="../images/Closure.svg" width="20" height="20" /></a>
-                                                </ItemTemplate>
-                                            </asp:TemplateField>
+        <asp:TemplateField HeaderText="Docket No">
+            <ItemTemplate>
+                <asp:HyperLink ID="lnkDocket" runat="server" CssClass="GridFirstColumnStyle"
+                    Text='<%# Eval("DocketNo") %>'
+                    NavigateUrl="#" 
+                    onclick='<%# "javascript:OpenpopupModal(\"" + Eval("DocketNo") + "\");return false;" %>' />
+            </ItemTemplate>
+        </asp:TemplateField>
 
-                                            <%--<asp:TemplateField  HeaderStyle-ForeColor="white" HeaderText="Acccode">
-                                            <ItemTemplate>
-                                                <a runat="server" href='<%# Eval("Acccode", "https://localhost:44327/EditAccount.aspx?AccCode="+ Eval("Acccode")  ) %>'>
-                                                    <%# Eval("Acccode") %>
-                                                </a>
-                                            </ItemTemplate>
-                                        </asp:TemplateField>--%>
-                                            <asp:TemplateField HeaderText="Install Code">
-                                                <HeaderStyle />
-                                                <ItemTemplate>
-                                                    <asp:HyperLink ID="HLAccCode" class="GridFirstColumnStyle" runat="server" onclick='<%# "javascript:OpenpopupModal(\"" +  Eval("InstallCode")  +  "\");return false; " %>' Text='<%# Eval("InstallCode") %>' NavigateUrl="#" />
-                                                </ItemTemplate>
-                                                <%--<ItemTemplate>
-                                                <asp:HyperLink  runat="server" Font-Size="Small" data-bs-toggle="modal" data-bs-target="#exampleModalCenter" Text='<%# Eval("Acccode") %>' NavigateUrl="#" onclick="CallEditAccountscreen()"/> 
-                                             </ItemTemplate>--%>
-                                            </asp:TemplateField>
+        <asp:BoundField HeaderText="Account" DataField="Account" ItemStyle-Width="200px" />
 
-                                            <asp:BoundField HeaderText="Account" DataField="Account" ItemStyle-Width="200px" />
+        <asp:TemplateField HeaderText="Address">
+            <ItemTemplate>
+                <div style="width: 150px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                    <asp:Label ID="lblAddr" runat="server" Text='<%# Eval("Address") %>'
+                               ToolTip='<%# Eval("Address") %>' />
+                </div>
+            </ItemTemplate>
+        </asp:TemplateField>
 
-                                            <asp:TemplateField HeaderText="Address">
-                                                <HeaderStyle />
-                                                <ItemTemplate>
-                                                    <div style="width: 150px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
-                                                        <asp:Label ID="lblEllipsis" runat="server" Text='<%#Eval("Address") %>' ToolTip='<%#Eval("Address") %>'></asp:Label>
-                                                    </div>
-                                                </ItemTemplate>
-                                            </asp:TemplateField>
+        <asp:BoundField HeaderText="Product" DataField="Product" />
+        <asp:BoundField HeaderText="Call Date" DataField="CallDate" />
+        <asp:BoundField HeaderText="Serial No" DataField="SerialNo" />
+        <asp:BoundField HeaderText="Site" DataField="Site" ItemStyle-Width="150px" />
+        <asp:BoundField HeaderText="Substatus" DataField="SubStatus" ItemStyle-Width="150px" />
+    </Columns>
+</asp:GridView>
 
-                                            <asp:BoundField HeaderText="Product" DataField="Product" />
-                                            <asp:BoundField HeaderText="Install Date" DataField="InstallDate" />
-                                            <asp:BoundField HeaderText="Warranty Type" DataField="WarrantyType" />
-                                            <asp:BoundField HeaderText="Serial No" DataField="SerialNo" />
-
-                                            <%-- <asp:BoundField HeaderText="Address" HeaderStyle-ForeColor="white" ItemStyle-Font-Size="Small" DataField="Address" ItemStyle-Width="350px" />--%>
-
-                                            <asp:BoundField HeaderText="Site" DataField="Site" ItemStyle-Width="150px" />
-                                            <asp:BoundField HeaderText="Substatus" DataField="SubStatus" ItemStyle-Width="150px" />
-
-                                        </Columns>
-                                    </asp:GridView>
 
                                     <%-- <asp:SqlDataSource ID="SqlDataSource1" runat="server"
                                     ConnectionString="<%$ SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-1G3J74F\SQLEXPRESS;Initial Catalog=studentmanagemant;Integrated Security=True"); %>"

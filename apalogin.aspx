@@ -86,7 +86,7 @@
 
         .logo {
             /*display: block;*/
-            margin: 0 auto 20px auto;
+            margin: 0 auto -20px auto;
             height: 50px;
         }
 
@@ -205,7 +205,7 @@
                     <br /><br /><br />
                     <div class="footer">
                         Version 0.1<br /> <br />
-                        Powered by KBS Innovation Pvt Ltd
+                        Powered by SHA Innovation Pvt Ltd
                     </div>
                 </div>
             </div>

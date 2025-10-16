@@ -25,28 +25,38 @@ namespace apa_pack
 
         protected void FillData()
         {
-            con.Open();
-            string Inssql = @"Select InstallCode,A.Account,A.Address,SerialNo,PM.Product,Convert(varchar(20),InstallDate,103) as 'InstallDate',WarrantyType,WarrStartDate,WarrEndDate,NoOfVisit,A.Site,SubStatus 
-                            from Purchase 
-                            inner join AccMast A on A.AccCode=Purchase.AccCode 
-                            inner Join ProdMast PM ON Purchase.prodcode=PM.Prodcode
-                            where Purchase.Status='Open'
-                            order by SerialNo Desc";
+            using (SqlConnection con = new SqlConnection(
+                @"Data Source=HAMEED\SQLEXPRESS; Initial Catalog=studentmanagemant;
+          User ID=sa;Password=shahul1234; Encrypt=True;TrustServerCertificate=True;MultipleActiveResultSets=True"))
+            {
+                con.Open();
 
+                // Service Request list by Docket No
+                string sql = @"
+            SELECT
+                SR.DocketNo,
+                CONVERT(varchar(10), SR.CallDate, 103) AS CallDate,
+                SR.SerialNo,
+                PM.Product,
+                SR.Status,
+                SR.SubStatus,
+                A.Account,
+                A.Address,
+                A.Site
+            FROM ServiceRequest SR
+            LEFT JOIN AccMast  A  ON A.AccCode  = SR.AccCode
+            LEFT JOIN ProdMast PM ON PM.ProdCode = SR.ProdCode
+            ORDER BY SR.CallDate DESC, SR.DocketNo DESC;";
 
-            SqlCommand cmd = new SqlCommand(Inssql, con);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
+                SqlDataAdapter da = new SqlDataAdapter(sql, con);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
 
-
-            GridviewInstallSummary.DataSource = ds;
-            GridviewInstallSummary.DataBind();
-
-            //Get perticular value from gridview
-            //dnAccCode.Value = GridviewAccountSummary.Rows[1].Cells[2].Text;
-            con.Close();
+                GridviewInstallSummary.DataSource = dt;
+                GridviewInstallSummary.DataBind();
+            }
         }
+
 
         protected void Gridincomeviewdetails_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
